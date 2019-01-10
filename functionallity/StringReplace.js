@@ -1,6 +1,8 @@
 /* 1. String Replace
+
  *  Purpose: Accept username from user and ensure given
-    username has minium 3 character.
+    username has minium 3 character and not a number. replace USERNAME with userinput
+    and print the string.
  *
  *  @author  Kiran B.E.
  *  @version 1.0
