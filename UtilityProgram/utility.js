@@ -153,7 +153,7 @@ harmonic(number)         //Function harmonic
 
 //------------------------------------------------------------------------------------------------------------------------------
 /*
-5. Factors 
+6. Factors 
 ----------------------------------------
 * @purpose : To compute the prime factorization of N using brute force.
 
