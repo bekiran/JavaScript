@@ -10,10 +10,10 @@
 */
 var utility = require('../UtilityProgram/utility')
 var read = require('readline-sync');
-function coinflip()
+function flipCoin()
 {
     var flips = read.question("Enter the number of toss : ");
-    utility.coinflip(flips);
+    utility.flipCoin(flips);
 
 }
-coinflip();
+flipCoin();

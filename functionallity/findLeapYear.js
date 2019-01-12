@@ -12,4 +12,4 @@ var Access = require('../UtilityProgram/utility');
 
 var read = require('readline-sync');
 var year=read.question("Enter four digit year : ");
-Access.leapyear(year);
+Access.findLeapYear(year);

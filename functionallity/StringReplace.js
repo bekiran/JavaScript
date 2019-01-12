@@ -12,4 +12,4 @@
 var Access = require('../UtilityProgram/utility');
 var read = require('readline-sync');
 var name=read.question("Enter your name : ");
-Access.replace(name);
+Access.stringReplace(name);

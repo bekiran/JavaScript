@@ -12,4 +12,4 @@ var Access = require('../UtilityProgram/utility');
 
 var read = require('readline-sync');
 var number=read.question("Enter the number greater then zero : ");
-console.log(Access.harmonic(number));
+console.log(Access.harmonicNumber(number));

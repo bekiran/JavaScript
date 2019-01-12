@@ -11,5 +11,5 @@ that are less than or equal to 2^N. value of N should be less then 31.
 var Access = require('../UtilityProgram/utility');
 
 var read = require('readline-sync');
-var number=read.questionInt("Please enter only number between 0 and 31 : ");
-Access.powertwo(number);
+var number=read.questionInt("Please enter the number between 0 and 31 : ");
+Access.powerOfTwo(number);
