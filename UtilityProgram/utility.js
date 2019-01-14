@@ -596,4 +596,179 @@ windChill(temp, vol)
 },
 
 /************************************ End Of Functional Programs *************************/
+
+
+/************************************ Algorithm Programs **********************************/
+
+/************************************ Anagram Detection **********************************/
+/*1.0 Anagram Detection
+*-----------------
+* @purpose : To find the windchill. The temperature t (in Fahrenheit) and the
+* wind speed v (in miles per hour),the National Weather Service defines the 
+*effective temperature (the wind chill) .
+*
+* @description : The formula is given by the national weather service. Formula is not
+* valid if t is larger than 50 in absolute value or if v is larger than 120 or less than 3  
+*                
+*/
+/*
+isAnagram(str1, str2) 
+{
+    if (str1.length != str2.length) 
+    {
+        console.log("please enter both the strings of same length. Try again!")
+        return false;
+    }
+    else
+    {
+        var array1 = str1.toLowerCase().split("").sort();
+        console.log(array1);
+        var array2 = str2.toLowerCase().split("").sort();
+        console.log(array2);
+        for(let i =0; i<array1.length;i++)
+        {
+            if(array1[i]!=array2[i])
+            {
+                return false;
+            }   
+        }
+        return true;
+    }
+},
+*/
+isAnagram(string1, string2) {
+    string1=string1+"";
+    string2=string2+"";
+    if (string1.length != string2.length) {
+        return false;
+    }
+    var arr = [];
+    for (let index = 0; index < 36; index++) {
+        arr[index] = 0;
+
+    }
+    for (let index = 0; index < string1.length; index++) {
+        var ch = string1.charAt(index);
+        if (ch >= 'a' && ch <= 'z') {
+            var code = ch.charCodeAt(0);
+
+            arr[code - 97]++;
+        } else if (ch >= 'A' && ch <= 'Z') {
+            var code = ch.charCodeAt(0);
+            arr[code - 65]++;
+        } else {
+            var code = ch.charCodeAt(0);
+            arr[code - 22]++;
+        }
+        ch = string2.charAt(index);
+        if (ch >= 'a' && ch <= 'z') {
+            var code = ch.charCodeAt(0);
+
+            arr[code - 97]--;
+        } else if (ch >= 'A' && ch <= 'Z') {
+            var code = ch.charCodeAt(0);
+            arr[code - 65]--;
+        } else {
+            var code = ch.charCodeAt(0);
+            arr[code - 22]--;
+        }
+
+
+    }
+    for (let index = 0; index < 36; index++) {
+        if (arr[index] != 0) {
+            return false;
+        }
+    }
+    return true;
+},
+/************************************ Is Prime Number **********************************/
+/*1.1 Is Prime Number
+*-----------------
+* @purpose : To find the windchill. The temperature t (in Fahrenheit) and the
+* wind speed v (in miles per hour),the National Weather Service defines the 
+*effective temperature (the wind chill) .
+*
+* @description : The formula is given by the national weather service. Formula is not
+* valid if t is larger than 50 in absolute value or if v is larger than 120 or less than 3  
+*                
+*/
+
+isPrime(number)
+{
+    if(number==0 || number == 1)
+    {
+        return false;
+    }
+    else
+    {
+        for (let index = 2; index < number; index++)
+        {
+            if (number % index == 0) 
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+},
+isPalimdrome(string1) 
+{
+    var str = "";
+    for (let index = 0; index < string1.length; index++) 
+    {
+        str = string1.charAt(index) + str;
+    }
+    if (str == string1)
+    {
+        return true;
+    }
+    return false;
+},
+
+isPalimdrome2String(num1,num2)
+{
+    var str="";
+    num1=num1+"";
+    num2=num2+"";
+
+    for (let i = 0; i < num1.length; i++) 
+    {
+        str=num1.charAt(i)+str;
+    }
+    if(str==num2)
+    {
+        return true;
+    }
+    return false;
+},
+
+isAnagramPalimdrome() 
+{
+    var arr=[];
+    for (let index = 0; index < 1000; index++) 
+    {
+        if (this.isPrime(index)) 
+        {
+            arr.push(index);
+        }
+
+    }
+    
+    for (let i = 0; i < arr.length; i++) 
+    {
+        for (let j = i+1; j < arr.length; j++) 
+        {
+            if(this.isAnagram(arr[i],arr[j]))
+            {
+                if(this.isPalimdrome2String(arr[i],arr[j]))
+                {
+                    console.log(arr[i],"  ",arr[j]);
+                }
+            }
+        }
+    }
+},
+
+
 }
