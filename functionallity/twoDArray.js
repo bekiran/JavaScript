@@ -8,15 +8,9 @@
  * @since:      24-12-18
  * 
  */
-var Utility=require('../UtilityProgram/Utility');
+var Utility=require('../UtilityProgram/utility');
 var readline=require('readline-sync');
+var col=readline.question('Enter the required column number : ');
+var row=readline.question('Enter the required row number : ');
+var res=Utility.twoDArry(row,col);
 
-function twoDarry()
-{
-var col=readline.question('Enter the required column number ');
-var row=readline.question('Enter the required row number ');
-var res=Utility.twoDarry(row,col);
-
-console.log(res)
-}
-twoDarry();

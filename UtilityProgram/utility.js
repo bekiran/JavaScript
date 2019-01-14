@@ -27,7 +27,14 @@ stringReplace(username)
             flag=false;
         }
     }
-},    
+},  
+input()
+{
+    const readline = require('readline-sync');
+    const r1 = readline.createInterface({input: ProcessingInstruction.stdin, output : ProcessingInstruction.stdout})
+    return r1;
+
+},  
 
 /************************************* Flip Coin *****************************************/ 
 /* 2. Flip Coin
@@ -240,22 +247,21 @@ gamblerBrokeOrOwn(stake, trails, target)
 *                
 */
 
-couponCodeGenerate(n)
+couponCodeGenerate(number)
 {
     var arr = [];
     var count = 0;
-    while(arr.length=n)
+    while(count!=number)
     {
-        var j=Math.round(Math.random()*n);
-        count++;
-
-        if(!arr.includes(j))
+        var k=Math.round(Math.random()*number);
+        if(!arr.includes(k))
         {
-            arr.push(j);
+            arr.push(k);
+            count++;
         }
-        console.log(arr);
-        return count;
+        //return count;
     }
+    console.log(arr);
     
 },
 
@@ -269,19 +275,325 @@ couponCodeGenerate(n)
 * @description : total random number needed to have all distinct numbers.
 *                
 */
-twoDarry(row, col) {
+twoDArry(row, col) {
     var arr = [];
-    console.log("enter elements ");
+    console.log();
+    console.log("Enter the elements of Array bellow ");
+    console.log();
     //to generate the multi-dimensional array
-    for (let index = 0; index < row; index++) 
+    for (let i = 0; i < row; i++) 
     {
         arr.push([]);
     // adding elements by elements in generated array
-        for (let index2 = 0; index2 < col; index2++) 
-        {
-            arr[index][index2] = readline.question('');
+        for (let j = 0; j < col; j++)
+        { 
+        
+            var readline=require('readline-sync');
+            arr[i][j] = readline.questionInt("Enter the Array Element : ")
         }
     }
-    return arr;
+    console.log(arr);
 },
+
+//***************************** Sum of three Integer adds to ZERO ***********************/
+/*10. Sum of three Integer adds to ZERO
+*------------------
+* @purpose : A program with cubic running time. Read in N integers and counts the 
+*number of triples that sum to exactly 0.
+*
+*
+* @description :Find distinct triples (i, j, k) such that a[i] + a[j] + a[k] = 0.
+*                
+*/
+
+sumOfThreeInteger(arr)
+{
+    var arr2=[];
+    var count = 0;
+    for( let i =0;i<arr.length;i++)
+    {
+        for(let j=i+1;j<arr.length;j++)
+        {
+            var arr1=[];
+            for(let k=0;k<arr.length;k++)
+            {
+                if(arr[i]+arr[j]+arr[k]==0)
+                {
+                    arr1.push(arr[i]);
+                    arr1.push(arr[j]);
+                    arr1.push(arr[k]);
+                }
+            }
+            arr1.sort(function(a,b){return a-b});
+            var str2="";
+            for(let i =0;i<3;i++)
+            {
+                str2=str2+arr1[i];
+            }
+            console.log(arr1)
+
+            if(!arr.includes(str2) && str2.length>2)
+            {
+                arr2.push(str2)
+                count++;
+            }
+        }
+    }
+    console.log(arr2);
+    console.log(count);
+
+},
+
+//************************************* Distance ***************************************/
+/*11. Distance
+*-------------
+* @purpose : A program with cubic running time. Read in N integers and counts the 
+*number of triples that sum to exactly 0.
+*
+*
+* @description :Find distinct triples (i, j, k) such that a[i] + a[j] + a[k] = 0.
+*                
+*/
+
+findDistance(a,b)
+{
+    var  distance = Math.sqrt(a*a +b*b)
+    return distance;
+},
+
+//********************************** Permutation of String ***************************************/
+/*12. Permutation of string
+*--------------------------
+* @purpose : A functions to return all permutation of a String 
+*
+*
+* @description : Checks if the arrays returned by two string functions are equal.
+*                
+*/
+
+permutationOfString(str)
+{
+    var arr = str.split("");
+    console.log(arr);
+    var arr1=[];
+    const c =str.length;
+    for(let i =0 ;i<arr.length;i++)
+    {
+        var str1="";
+        for(let j = i; j<c ; j++)
+        {
+            str1=str1+arr[j];
+            var s = str.length-str1.length;
+        }
+        if(str1.length<str.length)
+        {
+            str1 = str1+str.substring(0,s);
+        }
+        if(!arr1.includes(str1))
+        {
+            arr1.push(str1);
+        }
+    }
+    console.log(arr1)
+},
+
+//************************************* Stop Watch ***************************************/
+
+/*
+* @description: return the time in seconds from 1970.
+*/
+
+currentSecond() 
+{
+    var dt = new Date();
+    return dt.getSeconds();
+},
+
+/*13. Stop Watch
+*-------------
+* @purpose : A Stopwatch Program for measuring the time that elapses between 
+the start and end clicks
+*
+*
+* @description :Measure the elapsed time between start and end.
+*                
+*/
+
+stopwatch(rl) 
+{
+    var start = 0, stop = 0;
+    var t1= rl.questionInt("Press  1 to start timer :" );
+    {
+        var t2 =0;
+        start = this.currentSecond(); //set current seconds.
+        var t2=rl.questionInt("Press 2 to stop timer : ");
+        {
+            stop = this.currentSecond(); //set current seconds.
+            console.log("elapsed time is " + (stop - start) + " seconds");
+        }  
+    }
+},
+
+//************************************* Tic-Tac-Toe ***************************************/
+/*14. Tic-Tac-Toe
+*-----------------
+* @purpose : A Stopwatch Program for measuring the time that elapses between 
+the start and end clicks
+*
+*
+* @description :Measure the elapsed time between start and end.
+*                
+*/
+
+ticTacToe()
+{
+    var arr = [[], [], []];
+    arr = this.addele1(arr);
+    this.display2dArray(arr);//for display array.
+    var c1 = 0;
+    var user = true;
+    var com = true;
+    var flag1 = true;
+    while (c1 < 9 && user && com)  //work upto 9 chances. 
+    {
+
+      var flag = true;
+      console.log("user chance");
+      while (flag) //take user input .
+      { 
+          console.log("enter index row,coloumn");
+          var r = read.question("");
+          var c = read.question("");
+          if (r < 3 && c < 3) {
+          if (this.checkIndex(r, c, arr)) //check for index is empty or not.if empty then set value else
+          {
+              //again take input of user.
+              arr[r][c] = 'x';
+              c1++;
+              flag = false;
+              this.display2dArray(arr);//display array again.
+              console.log("User c" + c1);
+            } 
+            else 
+            {
+                console.log("Index is filled re input index");
+            }
+        } 
+        else 
+        {
+            console.log("Please enter correct row or coloumn index");
+        }
+      flag = true;
+      if (this.isMatch(arr)) //for checking if row or coloumn match.
+      {
+          console.log("User win the match");
+          user = false;
+          flag = false;
+          flag1 = false;
+      }
+      if (flag1 && c1 < 9) 
+      {
+          console.log();
+          console.log();
+          console.log("Computer chance");
+      }
+      while (flag && c1 < 9) //taking input from computer using random method.
+        {
+            var r = Math.floor(Math.random() * 3);
+            var c = Math.floor(Math.random() * 3);
+            if (this.checkIndex(r, c, arr)) //check index is blan}
+                {
+                    arr[r][c] = '0';
+                    this.display2dArray(arr);//display the array.}
+                    flag = false;
+                    c1++;
+                    console.log("comp c " + c1)
+                }
+            }
+            flag = true;
+            if (this.isMatch(arr)) {// check if row or coloumn match.
+                {
+                    if (flag1)
+                    console.log("Computer win the match");
+                    com = false;
+                    flag = false;
+                }
+                console.log();
+                console.log();
+            }
+            if (user == true && com == true) 
+            {
+                console.log("Draw match ,No win No Loss");
+            }
+        }
+    }
+},
+
+//************************************* Root of a equation ***************************************/
+/*15. Root of a equation
+*-----------------
+* @purpose : To find the roots of the equation a*x*x + b*x + c. 
+*Since the equation is x*x, hence there are 2 roots. The 2 roots of the equation can be 
+*found using a formula.
+*
+*
+* @description : Take a, b and c as input values to find the roots of x.
+*                
+*/
+
+roots(a, b, c) 
+{
+    var delta = (b * b) - (4 * a * c);
+    console.log(delta);
+    if (delta == 0) 
+    {
+        var root = -b/(2*a);
+        console.log(root);
+    } 
+    else if (delta > 0) 
+    {
+        var root1 = (-b + (Math.sqrt(delta))) / 2 * a;
+        var root2 = (-b - (Math.sqrt(delta))) / 2 * a;
+        console.log("First root " + root1);
+        console.log("Second root " + root2);
+    } 
+    else if (delta < 0) 
+    {
+        var root1 = -b / 2 * a;
+        var root2 = (Math.sqrt(-delta)) / 2 * a;
+        console.log("First root : " + root1, "i :", root2);
+        console.log("Second root : " + root1, "-i :", root2);
+    } 
+    else 
+    {
+        console.log("Invalid number");
+    }
+  },
+
+//************************************* Wind Chill ***************************************/
+/*16. Wind Chill
+*-----------------
+* @purpose : To find the windchill. The temperature t (in Fahrenheit) and the
+* wind speed v (in miles per hour),the National Weather Service defines the 
+*effective temperature (the wind chill) .
+*
+* @description : The formula is given by the national weather service. Formula is not
+* valid if t is larger than 50 in absolute value or if v is larger than 120 or less than 3  
+*                
+*/
+
+windChill(temp, vol)
+{
+    if (temp <= 50 && vol > 3 && vol < 120) 
+    {
+        var w = 35.74 + 0.6215 * temp + (0.4275 * temp - 35.75) * Math.pow(vol, 0.16);//calculate.
+        console.log("Windchill for temperature " + temp + " and wind speed " + vol + " is " + w);
+    } 
+    else 
+    {
+        console.log("Wrong temperature or wind speed");
+    }
+},
+
+/************************************ End Of Functional Programs *************************/
 }
