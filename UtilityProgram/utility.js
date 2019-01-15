@@ -1,3 +1,5 @@
+
+const readline = require('readline-sync');
 //------------------------------------------------------------------------------------
 module.exports= {
 /********************************* String replace *****************************************/
@@ -9,25 +11,38 @@ module.exports= {
 *  @descriptipn: Declaring the function and passing the userinput as argument.
 *  @function: diplayname takes the userinput and print it with some sentence.
 */
+arrayCall(arr) {
+    var number = readline.question("Enter total number of array elements");
+    console.log("Enter your Array elements");
+    //store elements by elements in array.
+    for (let index = 0; index < number; index++) {
+        arr[index] = readline.question("")
+
+    }
+    return arr;
+},
 
 stringReplace(username) 
 {
-    var input="Hello <<username>> , how are you?";
-    var output="";
-    var flag=true;
-    while(username.length<3 || !isNaN(username) && flag!=false)
-    {
+    var input ="Hello <<username>> , how are you?";
+    var output = input.replace(/<<username>>/g,username); 
+    console.log(output+" : Replace string using Regex ")
+
+    var output1="";
+    while(username.length<3 || !isNaN(username)) {
         var read = require('readline-sync');
         var name=read.question("Enter your name : ");
-        flag=false;
-        if(name.length>3 && isNaN(name) &&  flag!=true)
-        {
-            output=output+input.substring(0,6)+name+input.substring(19,input.length);
-            console.log(output);
-            flag=false;
-        }
     }
+    output1=output1+input.substring(0,6)+username+""+input.substring(19,input.length);
+    console.log(output1+" : hard-code");
 },  
+
+/**
+ * 
+ * 
+ * 
+ * 
+ */
 input()
 {
     const readline = require('readline-sync');
@@ -64,9 +79,9 @@ flipCoin(flip)
         }
     }
     var result = (head / flip)*100;
-    console.log("Percentage of Head"+result+" %");
+    console.log("Percentage of Head : "+result+" %");
     var result1 = (tail/flip)*100;
-    console.log("Percentage of Tail"+result1+" %")
+    console.log("Percentage of Tail : 6"+result1+" %")
 },
 
 /**************************************** Leap year ************************************/
@@ -227,13 +242,13 @@ gamblerBrokeOrOwn(stake, trails, target)
 
     }
 
-    var percentwin = (win*100)/(win+loss);
-    var percentloss = (loss*100)/(win+loss);
+    var percentWin = (win*100)/(win+loss);
+    var percentLoss = (loss*100)/(win+loss);
 
     console.log("The Great! gamble won : "+ win);
     console.log("The Great! Great! gambler lost : "+loss);
-    console.log("Percentage of Win is : "+percentwin+"%");
-    console.log("Percentage of Loss is : "+percentloss+"%")
+    console.log("Percentage of Win is : "+percentWin+"%");
+    console.log("Percentage of Loss is : "+percentLoss+"%")
 },
 
 //*********************************** Coupon Numbers **************************************/
@@ -275,24 +290,32 @@ couponCodeGenerate(number)
 * @description : total random number needed to have all distinct numbers.
 *                
 */
-twoDArry(row, col) {
-    var arr = [];
-    console.log();
-    console.log("Enter the elements of Array bellow ");
-    console.log();
-    //to generate the multi-dimensional array
-    for (let i = 0; i < row; i++) 
-    {
+twoDArray(m, n) {
+    var arr = [];;
+    for (let i = 0; i < m; i++) {
         arr.push([]);
-    // adding elements by elements in generated array
-        for (let j = 0; j < col; j++)
-        { 
-        
-            var readline=require('readline-sync');
-            arr[i][j] = readline.questionInt("Enter the Array Element : ")
-        }
+        for (let j = 0; j < n; j++)
+
+            arr[i][j] = readline.question("Enter the value");
     }
-    console.log(arr);
+    return arr;
+},
+print(arr) {
+    for (let i = 0; i < arr.length; i++)
+        console.log(arr[i]);
+},
+mark(arr)
+{
+    for(let i=0;i<2;i++)
+    {
+        var p = []
+        for(let j=0;j<2;j++)
+        {
+            p[j]=arr[i][j]
+        }
+        console.log(p)
+    }
+    return p
 },
 
 //***************************** Sum of three Integer adds to ZERO ***********************/
@@ -306,44 +329,24 @@ twoDArry(row, col) {
 *                
 */
 
-sumOfThreeInteger(arr)
-{
-    var arr2=[];
-    var count = 0;
-    for( let i =0;i<arr.length;i++)
-    {
-        for(let j=i+1;j<arr.length;j++)
-        {
-            var arr1=[];
-            for(let k=0;k<arr.length;k++)
-            {
-                if(arr[i]+arr[j]+arr[k]==0)
-                {
-                    arr1.push(arr[i]);
-                    arr1.push(arr[j]);
-                    arr1.push(arr[k]);
+triplet(res) {
+    count = 0;
+    for (let index = 0; index < res.length; index++) {
+        for (let index1 = index + 1; index1 < res.length; index1++) {
+            for (let index2 = index1 + 1; index2 < res.length; index2++) {
+                // check sum of three elements are equals to zero
+                if (Number(res[index]) + Number(res[index1]) + Number(res[index2]) == 0) {
+                    count++;
+                    console.log("[" + res[index] + "," + res[index1] + "," + res[index2] + "]");
                 }
-            }
-            arr1.sort(function(a,b){return a-b});
-            var str2="";
-            for(let i =0;i<3;i++)
-            {
-                str2=str2+arr1[i];
-            }
-            console.log(arr1)
 
-            if(!arr.includes(str2) && str2.length>2)
-            {
-                arr2.push(str2)
-                count++;
             }
         }
+
     }
-    console.log(arr2);
-    console.log(count);
-
+    console.log("Number of triplets found is ", count);
 },
-
+    
 //************************************* Distance ***************************************/
 /*11. Distance
 *-------------
@@ -382,6 +385,7 @@ permutationOfString(str)
         var str1="";
         for(let j = i; j<c ; j++)
         {
+
             str1=str1+arr[j];
             var s = str.length-str1.length;
         }
@@ -422,14 +426,14 @@ the start and end clicks
 stopwatch(rl) 
 {
     var start = 0, stop = 0;
-    var t1= rl.questionInt("Press  1 to start timer :" );
+    var t1= rl.questionInt("Press 1 to start timer : " )-1;
     {
         var t2 =0;
         start = this.currentSecond(); //set current seconds.
-        var t2=rl.questionInt("Press 2 to stop timer : ");
+        var t2=rl.questionInt("Press 2 to stop timer : ")-1;
         {
             stop = this.currentSecond(); //set current seconds.
-            console.log("elapsed time is " + (stop - start) + " seconds");
+            console.log("elapsed time is " + (stop - start) + " seconds.");
         }  
     }
 },
@@ -444,7 +448,95 @@ the start and end clicks
 * @description :Measure the elapsed time between start and end.
 *                
 */
+intializeGame() {
+    var game = [];
+    for (let i = 0; i <= 2; i++) {
+        game.push([]);
+        for (let j = 0; j <= 2; j++)
+            game[i][j] = '-';
+    }
+    return game;
+},
 
+random() {
+    var value = Math.floor(Math.random() * 3);
+    console.log(value+1);
+    return value;
+},
+
+mark(game, x, y, value) {
+    if (game[x][y] == '-')
+        game[x][y] = value;
+    for (let i = 0; i <= 2; i++) {
+        var print = [];
+        for (let j = 0; j <= 2; j++)
+            print[j] = game[i][j];
+        console.log(print);
+    }
+    return game;
+}
+,
+computerPlayer(game) {
+    var arr;
+    var flag = false;
+    while (flag == false) {
+        var x = this.random();
+        var y = this.random();
+        if (game[x][y] == '-') {
+            arr = this.mark(game, x, y, 'O');
+            flag = true;
+        }
+    }
+    return game;
+}
+,
+userPlayer(game) {
+    var flag = false;
+    while (flag == false) {
+        console.log("Enter the row value:");
+        let x = readline.questionInt('Enter the value of x within 1,2,3 : ')-1;
+        let y = readline.questionInt('Enter the value of y within 1,2,3 : ')-1;
+        if (game[x][y] == '-') {
+            this.mark(game, x, y, 'X');
+            flag = true;
+        }
+        else
+            console.log("Please enter the correct choice");
+    }
+    return game;
+}
+,
+check(game) {
+    for (let i = 0; i <= 2; i++) {
+        if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) {
+            if (game[i][0] == 'O' || game[i][0] == 'X') {
+                return true;
+            }
+        }
+        if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) {
+            if (game[0][i] == 'O' || game[0][i] == 'X') {
+                return true;
+            }
+        }
+    }
+    var k = 0, l = 0;
+    if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) {
+        if (game[0][0] == 'O' || game[0][0] == 'X') {
+            return true;
+        }
+    }
+    if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) {
+        if (game[0][0] == 'O' || game[0][0] == 'X') {
+            return true;
+        }
+    }
+    return false;
+},
+
+
+
+
+/*
 ticTacToe()
 {
     var arr = [[], [], []];
@@ -528,7 +620,7 @@ ticTacToe()
         }
     }
 },
-
+*/
 //************************************* Root of a equation ***************************************/
 /*15. Root of a equation
 *-----------------

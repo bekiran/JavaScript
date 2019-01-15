@@ -1,13 +1,20 @@
-/* 2. Power of Two
-
- *  Purpose: To Accept value of "N" from user and prints a table of the powers of 2 
-that are less than or equal to 2^N. value of N should be less then 31.
+/******************************************************************************
+ *  Execution       :   1. default node          : cmd> powerOfTwo.js
+ *                      2. if nodemon installed  : cmd> powerOfTwo.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  Purpose         : To Accept value of "N" from user and prints a table of the powers of 2 
+ *                    that are less than or equal to 2^N.
+ * 
+ *  @description    
+ * 
+ *  @file           : powerOfTwo.js
+ *  @overview       : N should be less the 31.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 11-jan-2019
  *
- *  @author  Kiran B.E.
- *  @version 1.0
- *  @since   11 Jan 2018
- *  
-*/
+ ******************************************************************************/
 var Access = require('../UtilityProgram/utility');
 
 var read = require('readline-sync');

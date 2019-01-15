@@ -1,3 +1,6 @@
+/****
+ * Sample program
+ */
 function hello(a,b,c)
 {
     return (""+a+""+b+""+c)

@@ -1,15 +1,21 @@
-/* 5. Harmonic Number
-
- *  Purpose: To generate Harmonic numbers to the given user input and print the 'N'th harmonic number
-for the user input.
+/******************************************************************************
+ *  Execution       :   1. default node          : cmd> node gambler.js
+ *                      2. if nodemon installed  : cmd> nodemon gambler.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  Purpose         : Get the nth Harmonic number.
+ * 
+ *  @description    
+ * 
+ *  @file           : gambler.js
+ *  @overview       : Get the Harmonic number of all the values till nth number,
+ *                    and get the sum of it
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 11-jan-2019
  *
- *  @author  Kiran B.E.
- *  @version 1.0
- *  @since   11 Jan 2018
- *  
-*/
-var Access = require('../UtilityProgram/utility');
-
-var read = require('readline-sync');
-var number=read.question("Enter the number greater then zero : ");
+ ******************************************************************************/
+const Access = require('../UtilityProgram/utility');
+const read = require('readline-sync');
+const number=read.question("Enter the number greater then zero : ");
 console.log(Access.harmonicNumber(number));
