@@ -1,4 +1,20 @@
-
+/******************************************************************************
+ *  Execution       :   1. default node          : cmd> node ticTacToe.js
+ *                      2. if nodemon installed  : cmd> nodemon ticTacToe.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  Purpose         : To play a Cross Game or Tic-Tac-Toe Game. Player 1 is the Computer and the
+ *                    Player 2 is the user. Player 1 take Random Cell that is the Column and Row. 
+ * 
+ *  @description    
+ * 
+ *  @file           : ticTacToe.js
+ *  @overview       : Sum the number of times the count of heads and tails,calculate the percentage.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 11-jan-2019
+ *
+ ******************************************************************************/
 const readline = require('readline-sync');
 /**
  * import the Utility class to use the functionalities.

@@ -2,15 +2,7 @@
 const readline = require('readline-sync');
 //------------------------------------------------------------------------------------
 module.exports= {
-/********************************* String replace *****************************************/
-/* 1. String Replace
-*-------------------
-* Purpose   : To ensure username with minimum 3 characters and not a number,replacing USERNAME with userinput
-*             and print the string.
-*
-*  @descriptipn: Declaring the function and passing the userinput as argument.
-*  @function: diplayname takes the userinput and print it with some sentence.
-*/
+
 arrayCall(arr) {
     var number = readline.question("Enter total number of array elements");
     console.log("Enter your Array elements");
@@ -21,6 +13,15 @@ arrayCall(arr) {
     }
     return arr;
 },
+/********************************* String replace *****************************************/
+/* 1. String Replace
+*-------------------
+* Purpose   : To ensure username with minimum 3 characters and not a number,replacing USERNAME with userinput
+*             and print the string.
+*
+*  @descriptipn: Declaring the function and passing the userinput as argument.
+*  @function: diplayname takes the userinput and print it with some sentence.
+*/
 
 stringReplace(username) 
 {
@@ -38,7 +39,7 @@ stringReplace(username)
 },  
 
 /**
- * 
+ *  Creating method for accepting User inputs.
  * 
  * 
  * 
@@ -448,9 +449,11 @@ the start and end clicks
 * @description :Measure the elapsed time between start and end.
 *                
 */
-intializeGame() {
+intializeGame() 
+{
     var game = [];
-    for (let i = 0; i <= 2; i++) {
+    for (let i = 0; i <= 2; i++) 
+    {
         game.push([]);
         for (let j = 0; j <= 2; j++)
             game[i][j] = '-';
@@ -458,16 +461,19 @@ intializeGame() {
     return game;
 },
 
-random() {
+random() 
+{
     var value = Math.floor(Math.random() * 3);
     console.log(value+1);
     return value;
 },
 
-mark(game, x, y, value) {
+mark(game, x, y, value) 
+{
     if (game[x][y] == '-')
         game[x][y] = value;
-    for (let i = 0; i <= 2; i++) {
+    for (let i = 0; i <= 2; i++) 
+    {
         var print = [];
         for (let j = 0; j <= 2; j++)
             print[j] = game[i][j];
@@ -476,13 +482,16 @@ mark(game, x, y, value) {
     return game;
 }
 ,
-computerPlayer(game) {
+computerPlayer(game) 
+{
     var arr;
     var flag = false;
-    while (flag == false) {
+    while (flag == false) 
+    {
         var x = this.random();
         var y = this.random();
-        if (game[x][y] == '-') {
+        if (game[x][y] == '-') 
+        {
             arr = this.mark(game, x, y, 'O');
             flag = true;
         }
@@ -490,13 +499,16 @@ computerPlayer(game) {
     return game;
 }
 ,
-userPlayer(game) {
+userPlayer(game) 
+{
     var flag = false;
-    while (flag == false) {
+    while (flag == false) 
+    {
         console.log("Enter the row value:");
         let x = readline.questionInt('Enter the value of x within 1,2,3 : ')-1;
         let y = readline.questionInt('Enter the value of y within 1,2,3 : ')-1;
-        if (game[x][y] == '-') {
+        if (game[x][y] == '-') 
+        {
             this.mark(game, x, y, 'X');
             flag = true;
         }
@@ -506,27 +518,37 @@ userPlayer(game) {
     return game;
 }
 ,
-check(game) {
-    for (let i = 0; i <= 2; i++) {
-        if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) {
-            if (game[i][0] == 'O' || game[i][0] == 'X') {
+check(game) 
+{
+    for (let i = 0; i <= 2; i++) 
+    {
+        if (game[i][0] == game[i][1] && game[i][1] == game[i][2]) 
+        {
+            if (game[i][0] == 'O' || game[i][0] == 'X') 
+            {
                 return true;
             }
         }
-        if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) {
-            if (game[0][i] == 'O' || game[0][i] == 'X') {
+        if (game[0][i] == game[1][i] && game[1][i] == game[2][i]) 
+        {
+            if (game[0][i] == 'O' || game[0][i] == 'X') 
+            {
                 return true;
             }
         }
     }
     var k = 0, l = 0;
-    if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) {
-        if (game[0][0] == 'O' || game[0][0] == 'X') {
+    if (game[k][k] == game[k + 1][k + 1] && game[k + 1][k + 1] == game[k + 2][k + 2]) 
+    {
+        if (game[0][0] == 'O' || game[0][0] == 'X') 
+        {
             return true;
         }
     }
-    if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) {
-        if (game[0][0] == 'O' || game[0][0] == 'X') {
+    if (game[l][l + 2] == game[l + 1][l + 1] && game[l + 1][l + 1] == game[l + 2][l]) 
+    {
+        if (game[0][0] == 'O' || game[0][0] == 'X')
+        {
             return true;
         }
     }
@@ -534,93 +556,6 @@ check(game) {
 },
 
 
-
-
-/*
-ticTacToe()
-{
-    var arr = [[], [], []];
-    arr = this.addele1(arr);
-    this.display2dArray(arr);//for display array.
-    var c1 = 0;
-    var user = true;
-    var com = true;
-    var flag1 = true;
-    while (c1 < 9 && user && com)  //work upto 9 chances. 
-    {
-
-      var flag = true;
-      console.log("user chance");
-      while (flag) //take user input .
-      { 
-          console.log("enter index row,coloumn");
-          var r = read.question("");
-          var c = read.question("");
-          if (r < 3 && c < 3) {
-          if (this.checkIndex(r, c, arr)) //check for index is empty or not.if empty then set value else
-          {
-              //again take input of user.
-              arr[r][c] = 'x';
-              c1++;
-              flag = false;
-              this.display2dArray(arr);//display array again.
-              console.log("User c" + c1);
-            } 
-            else 
-            {
-                console.log("Index is filled re input index");
-            }
-        } 
-        else 
-        {
-            console.log("Please enter correct row or coloumn index");
-        }
-      flag = true;
-      if (this.isMatch(arr)) //for checking if row or coloumn match.
-      {
-          console.log("User win the match");
-          user = false;
-          flag = false;
-          flag1 = false;
-      }
-      if (flag1 && c1 < 9) 
-      {
-          console.log();
-          console.log();
-          console.log("Computer chance");
-      }
-      while (flag && c1 < 9) //taking input from computer using random method.
-        {
-            var r = Math.floor(Math.random() * 3);
-            var c = Math.floor(Math.random() * 3);
-            if (this.checkIndex(r, c, arr)) //check index is blan}
-                {
-                    arr[r][c] = '0';
-                    this.display2dArray(arr);//display the array.}
-                    flag = false;
-                    c1++;
-                    console.log("comp c " + c1)
-                }
-            }
-            flag = true;
-            if (this.isMatch(arr)) {// check if row or coloumn match.
-                {
-                    if (flag1)
-                    console.log("Computer win the match");
-                    com = false;
-                    flag = false;
-                }
-                console.log();
-                console.log();
-            }
-            if (user == true && com == true) 
-            {
-                console.log("Draw match ,No win No Loss");
-            }
-        }
-    }
-},
-*/
 //************************************* Root of a equation ***************************************/
 /*15. Root of a equation
 *-----------------
@@ -703,31 +638,7 @@ windChill(temp, vol)
 * valid if t is larger than 50 in absolute value or if v is larger than 120 or less than 3  
 *                
 */
-/*
-isAnagram(str1, str2) 
-{
-    if (str1.length != str2.length) 
-    {
-        console.log("please enter both the strings of same length. Try again!")
-        return false;
-    }
-    else
-    {
-        var array1 = str1.toLowerCase().split("").sort();
-        console.log(array1);
-        var array2 = str2.toLowerCase().split("").sort();
-        console.log(array2);
-        for(let i =0; i<array1.length;i++)
-        {
-            if(array1[i]!=array2[i])
-            {
-                return false;
-            }   
-        }
-        return true;
-    }
-},
-*/
+
 isAnagram(string1, string2) {
     string1=string1+"";
     string2=string2+"";

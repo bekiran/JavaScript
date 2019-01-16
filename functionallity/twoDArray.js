@@ -17,7 +17,7 @@ const readline = require('readline-sync');
  * import the Utility class to use the functionalities.
  */
 const util = require('../UtilityProgram/utility');
-console.log("Enter the array length of m rows n columns");
+console.log("Enter the array length of m rows n columns :");
 var m = readline.questionInt("Enter the value of m : ");
 var n = readline.questionInt("Enter the value of n : ");
 var arr = util.twoDArray(m,n);
