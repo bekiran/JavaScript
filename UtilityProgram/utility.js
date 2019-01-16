@@ -4,12 +4,23 @@ const readline = require('readline-sync');
 module.exports= {
 
 arrayCall(arr) {
-    var number = readline.question("Enter total number of array elements");
-    console.log("Enter your Array elements");
+    var number = readline.question("Enter total number of array elements : ");
+    console.log("Enter your Array elements : ");
     //store elements by elements in array.
     for (let index = 0; index < number; index++) {
         arr[index] = readline.question("")
 
+    }
+    return arr;
+},
+
+
+insertArray(arr) {
+    var number = readline.question("Enter total number of array elements : ");
+    console.log("Enter your Array elements : ");
+    // stores elements by elements in array 
+    for (let index = 0; index < number; index++) {
+        arr[index] = Number(readline.question(""));
     }
     return arr;
 },
@@ -772,6 +783,37 @@ isAnagramPalimdrome()
         }
     }
 },
+/************************************ Binary Search **********************************/
+// 4.1 binarySearch method for integer
 
+searchBinaryInteger(arr1,low,high,ele)
+{
+    var mid;
+    while (high >= low) 
+    {
+        // calculate mid value 
+        mid = Math.floor(low + (high - low) / 2);
+        // check mid with ele
+        if (arr1[mid] == ele
+            ) 
+        {
+            return true;
+        }
+        //check mid with ele 
+        if (arr1[mid] > ele) 
+        {
+            //assign decremented mid to high 
+            high = mid - 1;
+        }
+        else 
+        {
+            //assign inremented mid to low
+            low = mid + 1;
+        }
+    }
+    // if not found return -1
+    return false;
+},
 
 }
+
