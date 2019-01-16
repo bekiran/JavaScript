@@ -943,5 +943,36 @@ bubbleString(str)
 },
 
 
+/************************************ Find Number **********************************/
+
+findNumber(low,high,read)
+{
+    var mid = low + Math.floor((high - low)/2)
+    console.log(mid)
+    if (low<high)
+    {
+        c = read.question("Is the number "+low +" if yes, press 'Y'. Else Press 'N' ")
+        if(c=='y')
+        {
+            return low;
+        }
+        else
+        {
+            return high;
+        }
+
+    }
+    c = read.question("Is the number "+mid+""+high+" if yes, press 'Y'. Else Press 'N' ")
+    if(c=='y')
+    {
+        mid = this.findNumber(mid, high, read)
+    }
+    if(c=='n')
+    {
+        mid = this.findNumber(low, mid-1, read)
+    }
+    return mid;
+},
+
 }
 
