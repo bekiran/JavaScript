@@ -726,6 +726,8 @@ isPrime(number)
         return true;
     }
 },
+
+/************************************ is Palimdrome **********************************/
 isPalimdrome(string1) 
 {
     var str = "";
@@ -740,6 +742,7 @@ isPalimdrome(string1)
     return false;
 },
 
+/************************************ isPalimdrome2String **********************************/
 isPalimdrome2String(num1,num2)
 {
     var str="";
@@ -757,6 +760,7 @@ isPalimdrome2String(num1,num2)
     return false;
 },
 
+/************************************ is Anagram Palimdrome **********************************/
 isAnagramPalimdrome() 
 {
     var arr=[];
@@ -783,10 +787,12 @@ isAnagramPalimdrome()
         }
     }
 },
-/************************************ Binary Search **********************************/
+
+/************************************ Binary Search Integer **********************************/
 // 4.1 binarySearch method for integer
 
-searchBinaryInteger(arr1,low,high,ele)
+
+binarySearch(res, low, high, ele) 
 {
     var mid;
     while (high >= low) 
@@ -794,13 +800,12 @@ searchBinaryInteger(arr1,low,high,ele)
         // calculate mid value 
         mid = Math.floor(low + (high - low) / 2);
         // check mid with ele
-        if (arr1[mid] == ele
-            ) 
+        if (res[mid] == ele) 
         {
-            return true;
+            return mid;
         }
         //check mid with ele 
-        if (arr1[mid] > ele) 
+        if (res[mid] > ele) 
         {
             //assign decremented mid to high 
             high = mid - 1;
@@ -812,8 +817,131 @@ searchBinaryInteger(arr1,low,high,ele)
         }
     }
     // if not found return -1
-    return false;
+    return -1;
 },
+
+
+/************************************ call File **********************************/
+
+
+callFile() 
+{
+    var fileStream = require('fs');
+    var f = fileStream.readFileSync('file.txt', 'utf8');
+    console.log(f);
+    var arr = f.split(' ');
+    return arr;
+},
+
+/************************************ file CAll **********************************/
+fileCall() 
+{
+    var fileStream = require('fs');
+    var f = fileStream.readFileSync('File.txt', 'utf8');
+    var arr = f.split(' ');
+    return arr;
+},
+
+/************************************ Binary Search  String **********************************/
+// 4.1 binarySearch method for String
+
+binaryString(res, low, high, ele) 
+{
+    var mid;
+
+    while (high >= low) 
+    {
+        mid = Math.floor(low + (high - low) / 2);
+        if (res[mid] == ele) 
+        {
+
+            return mid;
+        }
+        else if (res[mid] > ele) {
+            high = mid - 1;
+        }
+        else {
+            low = mid + 1;
+        }
+    }
+    return -1;
+},
+
+/************************************ Insertion sort **********************************/
+
+insertion(res) 
+{
+    for (let i = 1; i < res.length; i++) 
+    {
+        var point = res[i];
+        var j = i - 1;
+        while (j >= 0 && res[j] > point) 
+        {
+            res[j + 1] = res[j];
+            j = j - 1;
+        }
+        res[j + 1] = point;
+    }
+    return res;
+},
+
+/************************************ Insertion String String **********************************/
+insertionString(str) 
+{
+    var ch = str;
+    for (let i = 0; i < ch.length; i++) 
+    {
+        var point = ch[i];
+        var j = i - 1;
+        while (j >= 0 && ch[j] > point) 
+        {
+            ch[j + 1] = ch[j];
+            j = j - 1;
+        }
+        ch[j + 1] = point;
+    }
+    return ch;
+},
+
+/************************************ Bubble Sort **********************************/
+bubbleSort(res) 
+{
+    // compare first and next elements in array and arrange 
+    for (let i = 0; i < res.length; i++) 
+    {
+           
+        for (let j = i + 1; j < res.length; j++) 
+        {
+            if (res[i] > res[j]) 
+            {
+                var temp = res[i];   
+                res[i] = res[j];
+                res[j] = temp;
+            }
+        }
+    }
+    return res;
+},
+
+/************************************ Bubble String **********************************/
+bubbleString(str) 
+{
+    var ch = str;
+    for (let i = 0; i < ch.length; i++) 
+    {
+        for (let j = 0; j < ch.length; j++) 
+        {
+            if (ch[j] > ch[j + 1]) 
+            {
+                var temp = ch[j];
+                ch[j] = ch[j + 1];
+                ch[j + 1] = temp;
+            }
+        }
+    }
+    return ch;
+},
+
 
 }
 

@@ -1,19 +1,13 @@
-var Utility = require("../UtilityProgram/utility");
-var readline = require("readline-sync");
-function searchBinaryInteger() {
-  var arr = [];
-  var arr1 = Utility.insertArray(arr);
-  var low = 0,
-    high = arr1.length - 1;
-  console.log("Enter the element you want search : ");
-  var ele = readline.question("");
-  var arr2=this.A
-  var res1 = Utility.searchBinaryInteger(arr1, low, high, ele);
-  if(res1==true)
-  console.log("The number is found  ");
-  else
-  console.log("The number is not found  ");
+var Utility = require('../UtilityProgram/utility');
+var readline = require('readline-sync');
+function binarySearch() {
+    var arr = [];
+   var res= Utility.insertArray(arr);
+   var low=0,high=res.length-1;
+   console.log("Enter the element you want search");
+   var ele=readline.question('');
+  var res1= Utility.binarySearch(res,low,high,ele);
+  console.log("The number is found on the index",res1);
 
 }
-searchBinaryInteger();
-function A(a,b){return a-b}
+binarySearch();
