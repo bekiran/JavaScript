@@ -41,7 +41,7 @@ function ticTacToe(){
     	    console.log("Computer is the winner. Better luck next time");
 	        break;
 	    }
-	    else if(count==9)
+	    else if(count==8)
 	    {
 		    console.log("Draw match.. Try next!");	
 		    break;

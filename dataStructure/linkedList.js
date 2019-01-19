@@ -68,7 +68,7 @@ class Linkedlist
 
     insertAt(element,index)
     {
-        if(index>0 && index>this.size)
+        if(index<0 && index>this.size) // *changed
         return false;
 
         else
@@ -83,7 +83,8 @@ class Linkedlist
                 node.next = head;
                 this.head = node;
             }
-            else{
+            else
+            {
                 curr = this.head;
                 var it = 0;
 
@@ -101,11 +102,60 @@ class Linkedlist
 
     }
 
-
-    // remove an element from perticular location (index)
-
-
     
+    addAscending()
+    {
+        console.log("ghhgh")
+        var main=this.head;
+        var mainHead=null;
+        while(main)
+        {
+            
+            var n=new Node(main.element);
+            var flag=true;
+            if(mainHead==null)
+            {
+               
+                mainHead=n;
+                this.head=mainHead;
+            }
+            else
+            {
+                console.log("Kiran")
+                var pre=mainHead,curr=mainHead;
+                if(curr.next==null)
+                {
+                    if(n.element<curr.element)
+                    {   
+                        n.next=curr;
+                        mainHead=n;
+                        flag=false;
+                    }
+                }
+                while(curr&&flag)
+                {
+                    if(n.element<curr.element)
+                    {
+                        pre.next=n;
+                        n.next=curr;
+                        flag=false;
+                    }
+                    pre=curr;
+                    curr=curr.next;
+                }
+                console.log("hjhj")
+                if(flag==true)
+                {
+                    pre.next=n;
+                }
+            }
+            main=main.next;
+        }
+        console.log("Kn")
+        return this.head=mainHead;
+    }
+
+    // remove an element from perticular location (index)    
     removeFrom(index)
     {
         if(index > 0 && index > this.size)
@@ -211,51 +261,36 @@ module.exports={Linkedlist}
 // creating an object for the 
 // Linkedlist class 
 var ll = new LinkedList(); 
-
 // testing isEmpty on an empty list 
 // returns true 
 console.log(ll.isEmpty()); 
-
 // adding element to the list 
 ll.add(10); 
-
 // prints 10 
 ll.printList(); 
-
 // returns 1 
 console.log(ll.size_of_list()); 
-
 // adding more elements to the list 
 ll.add(20); 
 ll.add(30); 
 ll.add(40); 
 ll.add(50); 
-
 // returns 10 20 30 40 50 
 ll.printList(); 
-
 // prints 50 from the list 
 console.log("is element removed ?" + ll.removeElement(50)); 
-
 // prints 10 20 30 40 
 ll.printList(); 
-
 // returns 3 
 console.log("Index of 40 " + ll.indexOf(40)); 
-
 // insert 60 at second positon 
 // ll contains 10 20 60 30 40 
 ll.insertAt(60, 2); 
-
 ll.printList(); 
-
 // returns false 
 console.log("is List Empty ? " + ll.isEmpty()); 
-
 // remove 3rd element from the list 
 console.log(ll.removeFrom(3)); 
-
 // prints 10 20 60 40 
 ll.printList(); 
-
 */

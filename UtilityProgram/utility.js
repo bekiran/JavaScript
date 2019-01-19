@@ -842,6 +842,19 @@ fileCall()
     return arr;
 },
 
+writeFile(filename,Data)
+    {
+        const fs = require('fs')
+        fs.writeFile(filename,Data,function(err)
+        {
+            if(err)
+            {
+                return console.log(err);
+            }
+
+        });
+    }, 
+
 /************************************ Binary Search  String **********************************/
 // 4.1 binarySearch method for String
 
@@ -951,28 +964,319 @@ findNumber(low,high,read)
     console.log(mid)
     if (low<high)
     {
-        c = read.question("Is the number "+low +" if yes, press 'Y'. Else Press 'N' ")
-        if(c=='y')
+        if(low==high-1)
         {
+            var c;
+            c = read.question("Is the number "+low +" if yes, press 'Y'. Else Press 'N' : ")
+            if(c=='y')
             return low;
-        }
-        else
-        {
+            if(c=='n')
             return high;
         }
-
-    }
-    c = read.question("Is the number "+mid+""+high+" if yes, press 'Y'. Else Press 'N' ")
-    if(c=='y')
-    {
+        c = read.question("Is the number "+mid+-+high+" if yes, press 'Y'. Else Press 'N' : ")
+        if(c=='y')
         mid = this.findNumber(mid, high, read)
-    }
-    if(c=='n')
-    {
+        if(c=='n')
         mid = this.findNumber(low, mid-1, read)
     }
     return mid;
 },
 
+/********************************* Vending Mechine **********************************/
+VendingMechine(arr, amount)
+{
+    var notes=0;
+    for(let i = 0; i < arr.length;i++)
+    {
+        if(amount/arr[i]>=1)
+        {
+            var c = Math.floor(amount/arr[i])
+            notes=notes+c
+            console.log(arr[i]+" dispatched notes are : "+c)
+            amount=amount%arr[i]
+        }
+    }
+    console.log("Total num of notes dispatched are : "+notes)
+},
+/************************************ Day of Week **********************************/
+dayOfWeek(day, month, year) 
+{
+    
+    var y0 = year - Math.floor((14 - month) / 12);
+    var x = y0 + Math.floor((y0 / 4)) - Math.floor((y0 / 100)) + Math.floor((y0 / 400));
+    m0 = month + 12 * Math.floor((14 - month) / 12) - 2;
+    var d0 = (day + x + Math.floor((31 * m0) / 12)) % 7;
+    
+    return d0;
+},
+
+/************************************ Temperature Converstion **********************************/
+temperatureConverstion() {
+    var temperature;
+    var choice = read.question("In Which formate you want to convert \n press 1 for Celsius to Fahrenheit \n "
+        + "press 2 for Fahrenheit to celsius");
+    if (choice == 1) {
+        temperature = read.question("enter temperature in celsius");
+        if(temperature>=0){
+        var fahrenheit = temperature * (9 / 5) + 32;
+        console.log("Fahrenheit form of " + temperature + "C is :" + fahrenheit);
+        }else
+        console.log("Please input correct temperature");
+    } else if (choice == 2) {
+        temperature = read.question("enter temperature in Fahrenheit");
+        if(temperature>=0){
+        var celsius = (temperature - 32) * (5 / 9);
+        console.log("celsius form of " + temperature + "F is :" + celsius);
+        }else
+        console.log("Please enter correct temperature");
+    } else {
+        console.log("wrong choice");
+    }
+},
+
+/************************************ Monthly Payment **********************************/
+monthlyPayment(principal, year, rate) {
+    var n = 12 * year;
+    var r = (rate / (12 * 100));
+    var payment = ((principal * r) / ((1 - Math.pow((1 + r), -n))));
+    console.log("Your EMI for every month is : " + payment);
+},
+
+/************************************ Square Root**********************************/
+sqrRoot(num) {
+    if (num > 0) {
+        //formula 
+        var t = num;
+        var epsilon = 1e-15;
+        while (Math.abs(t - num / t) > epsilon * t) {
+            t = (num / t + t) / 2;
+        }
+        console.log("Squre root of non negative number is : ", t)
+    }
+    else {
+        console.log("Number should be positive ");
+    }
+},
+/************************************ To Binary **********************************/
+toBinary(number) {
+    str = "";
+    var ch = "";
+    while (number > 0) {
+        ch = (number % 2);
+        str = ch + str;
+        number = Math.floor(number / 2);
+    }
+    str=this.addZero(str);
+    return str;
+
+},
+
+/************************************ swap Nibble **********************************/
+swapNibble(mainstr) {
+    var tempString = mainstr.substring(0, 4);
+    mainstr = mainstr.substring(4, 8);
+    mainstr = mainstr + tempString;
+    return mainstr;
+},
+
+/************************************ Add Zero **********************************/
+addZero(str) {
+    while (str.length < 8) {
+        str = '0' + str;
+    }
+    return str;
+},
+
+/************************************ Power **********************************/
+power(base, pow) {
+    var sum = 1;
+    while (pow > 0) {
+        sum = sum * base;
+        pow--;
+    }
+    return sum;
+
+},
+
+/************************************ Binary To Decimal **********************************/
+binaryToDecimal(strBinary) {
+    sum = 0; var ch;
+    var n = 0;
+    for (let index = strBinary.length - 1; index >= 0; index--) {
+        ch = (strBinary.charAt(index).charCodeAt(0)) - 48;
+        sum = sum + this.power(2, n) * ch;
+        n++;
+
+    }
+    return sum;
+},
+
+/************************************ Binary Search **********************************/
+binarySearch(arr, ele) {
+    var first = 0, last = arr.length - 1;
+    while (first <= last) {
+        mid = Math.floor((first + last) / 2);
+        if (arr[mid] == ele) {
+            return mid;
+        } else if (arr[mid] > ele) {
+            last = mid - 1;
+        } else {
+            first = mid + 1;
+        }
+    }
+    return -1;
+},
+
+/************************************ Insertion Sort **********************************/
+insertionSort(arr) {
+    n = arr.length;
+    var ele;
+    for (let i = 1; i < n; i++) {
+        ele = arr[i];
+        var j = i - 1;
+        while (j >= 0 && arr[j] > ele) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = ele;
+
+    }
+    return arr;
+},
+
+/************************************ Bubble Sort **********************************/
+bubbleSort(arr) {
+    var temp;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+
+        }
+
+    }
+    return arr;
+
+},
+
+/************************************ Nano Time Second **********************************/
+getNanoSecTime() {
+    var hrTime = process.hrtime();
+    return hrTime[0] * 1000000000 + hrTime[1];
+},
+
+/************************************ elapsed time **********************************/
+elapsedTimeForMethod() {
+
+    var start = 0, stop = 0;
+
+    var arr = [11, 66, 1, 55, 9, 78, 65, 87, 43, 56];
+    start = this.getNanoSecTime();
+    this.insertionSort(arr);
+    stop = this.getNanoSecTime();
+    var insertionSortTime = stop - start;
+
+
+    var brr = [11, 66, 1, 55, 9, 78, 65, 87, 43, 56];
+    start = this.getNanoSecTime();
+    this.bubbleSort(brr);
+    stop = this.getNanoSecTime();
+    var bubbleTime = stop - start;
+
+    var crr = [11, 66, 1, 55, 9, 78, 65, 87, 43, 56];
+    start = this.getNanoSecTime();
+    this.binarySearch(crr, 55);
+    stop = this.getNanoSecTime();
+    var BinaryTime = stop - start;
+
+    var arrString = ["a", "gh", "b", "z", "mn"];
+    start = this.getNanoSecTime();
+    this.insertionSort(arrString);
+    stop = this.getNanoSecTime();
+    var insertionSortTimeString = stop - start;
+
+
+    var brrString = ["a", "gh", "b", "z", "mn"];
+    start = this.getNanoSecTime();
+    this.bubbleSort(brrString);
+    stop = this.getNanoSecTime();
+    var bubbleTimeString = stop - start;
+
+    var crrString = ["a", "gh", "b", "z", "mn"];
+    start = this.getNanoSecTime();
+    this.binarySearch(crrString, "gh");
+    stop = this.getNanoSecTime();
+    var binaryTimeString = stop - start;
+
+    var masterList = [{ type: "insertion sort ", time: insertionSortTime }, { type: "bubble Sort", time: bubbleTime },
+    { type: "binary search", time: BinaryTime }, { type: "insertion Sort String ", time: insertionSortTimeString },
+    { type: "bubble sort String ", time: bubbleTimeString }, { type: "binary search String", time: binaryTimeString }];
+    masterList.sort(function (a, b) { return b.time - a.time });
+
+    console.log("The time in descending order is ");
+    console.log("Time for " + masterList[0].type + " is " + masterList[0].time);
+    console.log("Time for " + masterList[1].type + " is " + masterList[1].time);
+    console.log("Time for " + masterList[2].type + " is " + masterList[2].time);
+    console.log("Time for " + masterList[3].type + " is " + masterList[3].time);
+    console.log("Time for " + masterList[4].type + " is " + masterList[4].time);
+    console.log("Time for " + masterList[5].type + " is " + masterList[5].time);
+
+
+},
+
+
+
+/************************************ merge **********************************/
+merge(arr, brr,crr) {
+    var i = 0, j = 0;
+    var k = 0;
+    
+    while (i < arr.length && j < brr.length) {
+        if (arr[i] < brr[j]) {
+            crr[k++] = arr[i++];
+        } else {
+            crr[k++] = brr[j++];
+        }
+    }
+    while (i < arr.length) {
+        crr[k++] = arr[i++];
+    }
+    while (j < brr.length) {
+        crr[k++] = brr[j++];
+    }
+    return crr;
+},
+
+
+/************************************ Merg Sort **********************************/
+mergeSort(arr) {
+    var n = arr.length;
+    if (n < 2) {
+        return;
+    }
+    var mid = Math.floor(n / 2);
+    var left = [mid];
+    var right = [n - mid];
+    for (let i = 0; i < mid; i++) {
+        left[i] = arr[i];
+
+    }
+    for (let j = mid; j < n; j++) {
+        right[j-mid] = arr[j];
+    }
+    this.mergeSort(left);
+    this.mergeSort(right);
+    this.merge(left,right,arr);
+    
+    
+},
+
+/********************************** The End of first Week **************************************/
+
 }
+
+
 
