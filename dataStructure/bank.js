@@ -1,4 +1,4 @@
-var utility = require('../dataStructure/QueueImplement')
+var utility = require('../dataStructure/Implementation/QueueImplement')
 var readline = require('readline-sync')
 function Queue() {
 var q = new utility.Queue;

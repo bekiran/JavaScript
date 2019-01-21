@@ -7,7 +7,7 @@ function order() {
 order();*/
 
 
-var access = require('../dataStructure/linkedList');
+var access = require('../dataStructure/Implementation/linkedList');
 var filestream = require('fs');
 var readline = require('readline-sync');
 //var utility = require('../DataStructure/utility');
