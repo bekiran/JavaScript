@@ -101,59 +101,118 @@ class Linkedlist
         }
 
     }
+    search(item){
+        if(this.head==null){
+            return false;
+        }
+
+        var curr=this.head;
+        while(curr){
+            if(curr.element==item){
+                return true;
+            }
+              
+            curr=curr.next;
+        }
+        return false;
+    }
 
     
     addAscending()
     {
-        console.log("ghhgh")
+    console.log("!check1")
+
         var main=this.head;
         var mainHead=null;
         while(main)
         {
-            
+        console.log("!check2")
+
             var n=new Node(main.element);
             var flag=true;
             if(mainHead==null)
             {
-               
+                console.log("!check3")
                 mainHead=n;
                 this.head=mainHead;
+   
+
             }
             else
             {
-                console.log("Kiran")
-                var pre=mainHead,curr=mainHead;
+                console.log("!check4")
+                var prev=mainHead,curr=mainHead;
                 if(curr.next==null)
                 {
-                    if(n.element<curr.element)
-                    {   
-                        n.next=curr;
-                        mainHead=n;
-                        flag=false;
-                    }
-                }
-                while(curr&&flag)
-                {
-                    if(n.element<curr.element)
-                    {
-                        pre.next=n;
-                        n.next=curr;
-                        flag=false;
-                    }
-                    pre=curr;
-                    curr=curr.next;
-                }
-                console.log("hjhj")
-                if(flag==true)
-                {
-                    pre.next=n;
+                    if(n.element<curr.element){
+                    n.next=curr;
+                    mainHead=n;
+                    flag=false;
                 }
             }
-            main=main.next;
+            while(curr&&flag)
+            {
+                if(n.element<curr.element)
+                {
+                    console.log("!check5")
+                    prev.next=n;
+                    n.next=curr;
+                    flag=false;
+                }
+                prev=curr;
+                curr=curr.next;
+            }
+            if(flag)
+            {
+                prev.next=n;
+            }
         }
-        console.log("Kn")
-        return this.head=mainHead;
+        main=main.next;
     }
+    console.log("!check6")
+    return this.head=mainHead;
+    }
+
+    /*addAscending(){
+        var main=this.head;
+          var mainHead=null;
+        while(main){
+         var n=new Node(main.element);
+         var flag=true;
+         if(mainHead==null){
+           
+             mainHead=n;
+          this.head=mainHead;
+ 
+         }else{
+             var pre=mainHead,curr=mainHead;
+             if(curr.next==null){
+                 if(n.element<curr.element){
+                     n.next=curr;
+                     mainHead=n;
+                     flag=false;
+                 }
+             }
+             while(curr&&flag){
+               if(n.element<curr.element){
+                   pre.next=n;
+                   n.next=curr;
+                   flag=false;
+               }
+ 
+                 pre=curr;
+                 curr=curr.next;
+             }
+             if(flag){
+                 pre.next=n;
+             }
+         }
+         
+            main=main.next;
+ 
+        }
+        return this.head=mainHead;
+    }*/
 
     // remove an element from perticular location (index)    
     removeFrom(index)
@@ -234,6 +293,23 @@ class Linkedlist
         // not found 
         return -1; 
     } 
+
+    getData()
+    {
+        var curr=this.head;
+        var str="";
+        while(curr)
+        {
+            str=str+curr.element;
+            if(curr.next!=null)
+            {
+                str=str+" ";
+            }
+            curr=curr.next;
+        }
+        return str;
+    }
+
 
     isEmpty() 
     { 

@@ -16,17 +16,53 @@
  *  @since          : 11-jan-2019
  */
 
- function balancedExpressiond()
- {
-    var utility=require('../dataStructure/utility')
-    var bal=utility.balancedExpression();
-    if(bal)
-    {
-        console.log("String is blanced");
+var Utility=require('../dataStructure/SatckImplement')
+var M=require('../UtilityProgram/utility')
+var read=require('readline-sync')
+function Stack(){
+var stack=new Utility.Stack;
+
+var st = new Utility.Stack;
+    var str = read.question("Enter your mathematical expression with parantheses : ");
+    var ch, i;
+
+    for (i = 0; i < str.length; i++) {
+        ch = str.charAt(i);
+
+        if (ch == '(' || ch == '[' || ch == '{') {
+            st.push(ch);
+
+        }
+        else {
+            switch (ch) {
+                case ')': if (st.pop() != '(') {
+                    return false;
+                }
+                    break;
+                case ']': if (st.pop() != '[') {
+                    return false;
+                }
+                    break;
+                case '}': if (st.pop() != '{') {
+                    return false;
+                } break;
+            }
+        }
+
+
     }
-    else
-    {
-        console.log("string is not blance")
+    if (st.getSize() == 0) {
+        return true;
     }
+    return false;
 }
-balancedExpression()
+var bol = Stack();
+
+
+if (bol) {
+    console.log("Mathematical expression is balanced");
+
+}
+else {
+    console.log("Mathematical expression not balanced");
+}
