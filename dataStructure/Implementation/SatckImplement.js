@@ -33,7 +33,8 @@ class Stack {
             console.log(this.items[top])
 
     }
-    getSize() {
+    getSize()
+    {
         return this.size;
 
     }
@@ -52,7 +53,7 @@ class Stack {
     }
     reversStack(items) {
         var newstack = new Stack;
-        var n = this.getsize();
+        var n = this.getSize();
         for (let index = 0; index < n; index++) {
             newstack.push(this.pop());
         }

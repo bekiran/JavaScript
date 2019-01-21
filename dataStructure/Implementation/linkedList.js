@@ -1,6 +1,249 @@
 //Implementing LinkedList Data Structure
+class Node {
+  constructor(element) {
+    this.element = element;
+    this.next = null;
+  }
+}
 
-// User defined Class node
+class LinkedList {
+  constructor() {
+    this.head = null;
+    this.size = 0;
+  }
+  add(element) {
+    var n = new Node(element);
+    if (this.head == null) {
+      this.head = n;
+      this.size++;
+      return;
+    } else {
+      var current = this.head;
+      while (current.next) {
+        current = current.next;
+      }
+      this.size++;
+      current.next = n;
+    }
+  }
+  insertFirst(element) {
+    var n = new Node(element);
+    if (this.head == null) {
+      this.head = n;
+      this.size++;
+      return;
+    } else {
+      n.next = this.head;
+      this.head = n;
+      this.size++;
+      return;
+    }
+  }
+
+  insert(index, element) {
+    if (index == 1) {
+      this.insertFirst(element);
+      return;
+    }
+    if (this.head == null) {
+      return;
+    }
+    var n = new Node(element);
+    var c = 0,
+      pre = this.head,
+      curr = this.head;
+    while (curr) {
+      if (c == index - 1) {
+        pre.next = n;
+        n.next = curr;
+        this.size++;
+        return;
+      }
+
+      c++;
+      pre = curr;
+      curr = curr.next;
+    }
+    return false;
+  }
+  deleteFirst() {
+    if (this.head == null) {
+      console.log("Linked List empty");
+      return;
+    }
+    var n = this.head.element;
+    this.head = this.head.next;
+    this.size--;
+    return n;
+  }
+  pop() {
+    if (this.head == null) {
+      console.log("No element present in the list");
+      return null;
+    }
+    if (this.head.next == null) {
+      this.head = null;
+      return;
+    }
+    var curr = this.head;
+    var pre = this.head;
+    while (curr.next != null) {
+      pre = curr;
+      curr = curr.next;
+    }
+    pre.next = null;
+    this.size--;
+    return curr.element;
+  }
+  popIndex(index) {
+    if (index < 0) {
+      console.log("please enter correct index");
+      return false;
+    } else if (index == 1) {
+      this.deleteFirst();
+      return;
+    }
+    var curr = this.head,
+      pre = curr,
+      c = 0;
+    while (curr) {
+      if (c == index - 1) {
+        pre.next = curr.next;
+        this.size--;
+        return curr.element;
+      }
+      c++;
+      pre = curr;
+      curr = curr.next;
+    }
+    return null;
+  }
+  remove(element) {
+    var curr = this.head;
+    if (curr.element == element) {
+      this.deleteFirst();
+      return;
+    }
+    var pre = curr;
+    while (curr) {
+      if (curr.element == element) {
+        pre.next = curr.next;
+        this.size--;
+        return curr.element;
+      }
+
+      pre = curr;
+      curr = curr.next;
+    }
+    return null;
+  }
+  search(item) {
+    if (this.head == null) {
+      return false;
+    }
+
+    var curr = this.head;
+    while (curr) {
+      if (curr.element == item) {
+        return true;
+      }
+
+      curr = curr.next;
+    }
+    return false;
+  }
+  isEmpty() {
+    if (this.size == 0) {
+      return true;
+    }
+    return false;
+  }
+  size_of_list() {
+    return this.size;
+  }
+
+  displayQueue() {
+    var curr = this.head;
+    var str = "";
+    while (curr) {
+      str = str + curr.element + " ";
+      if (curr.next != null) {
+        str = str + " ";
+      }
+      curr = curr.next;
+    }
+    return str;
+  }
+  addAscending() {
+    var main = this.head;
+    var mainHead = null;
+    while (main) {
+      var n = new Node(main.element);
+      var flag = true;
+      if (mainHead == null) {
+        mainHead = n;
+        this.head = mainHead;
+      } else {
+        var pre = mainHead,
+          curr = mainHead;
+        if (curr.next == null) {
+          if (n.element < curr.element) {
+            n.next = curr;
+            mainHead = n;
+            flag = false;
+          }
+        }
+        while (curr && flag) {
+          if (n.element < curr.element) {
+            pre.next = n;
+            n.next = curr;
+            flag = false;
+          }
+
+          pre = curr;
+          curr = curr.next;
+        }
+        if (flag) {
+          pre.next = n;
+        }
+      }
+
+      main = main.next;
+    }
+    return (this.head = mainHead);
+  }
+  show() {
+    var curr = this.head;
+    var str = "";
+    while (curr) {
+      str = str + curr.element + " ";
+      if (curr.next != null) {
+        str = str + "  ";
+      }
+      curr = curr.next;
+    }
+    console.log(str);
+    return str;
+  }
+  getData() {
+    var curr = this.head;
+    var str = "";
+    while (curr) {
+      str = str + curr.element;
+      if (curr.next != null) {
+        str = str + " ";
+      }
+      curr = curr.next;
+    }
+    return str;
+  }
+}
+
+module.exports = {
+  LinkedList
+};
+
+/*// User defined Class node
 class Node 
 {
   constructor(element) //constructor 
@@ -117,8 +360,50 @@ class Linkedlist
         return false;
     }
 
-    
     addAscending()
+    {
+        var main=this.head;
+        var mainHead=null;
+        while(main)
+        {
+            var node=new Node(main.element);
+            var flag=true;
+
+            if(mainHead==null)
+            {
+                mainHead=node;
+                this.head=mainHead;
+            }else{
+                var prev=mainHead,curr=mainHead;
+                if(curr.next==null){
+                    if(node.element<curr.element){
+                    node.next=curr;
+                    mainHead=node;
+                    flag=false;
+                }
+            }
+            while(curr&&flag){
+               if(node.element<curr.element){
+                   prev.next=node;
+                   node.next=curr;
+                   flag=false;
+               }
+ 
+                prev=curr;
+                curr=curr.next;
+            }
+            if(flag){
+                prev.next=node;
+            }
+        }
+         
+            main=main.next;
+ 
+        }
+        return this.head=mainHead;
+    }
+    
+    /*addAscending()
     {
     console.log("!check1")
 
@@ -171,9 +456,9 @@ class Linkedlist
     }
     console.log("!check6")
     return this.head=mainHead;
-    }
+    }*/
 
-    /*addAscending(){
+/*addAscending(){
         var main=this.head;
           var mainHead=null;
         while(main){
@@ -214,8 +499,8 @@ class Linkedlist
         return this.head=mainHead;
     }*/
 
-    // remove an element from perticular location (index)    
-    removeFrom(index)
+// remove an element from perticular location (index)
+/*removeFrom(index)
     {
         if(index > 0 && index > this.size)
         return -1;
@@ -332,41 +617,4 @@ class Linkedlist
         console.log(str); 
     } 
 }
-module.exports={Linkedlist}
-/*
-// creating an object for the 
-// Linkedlist class 
-var ll = new LinkedList(); 
-// testing isEmpty on an empty list 
-// returns true 
-console.log(ll.isEmpty()); 
-// adding element to the list 
-ll.add(10); 
-// prints 10 
-ll.printList(); 
-// returns 1 
-console.log(ll.size_of_list()); 
-// adding more elements to the list 
-ll.add(20); 
-ll.add(30); 
-ll.add(40); 
-ll.add(50); 
-// returns 10 20 30 40 50 
-ll.printList(); 
-// prints 50 from the list 
-console.log("is element removed ?" + ll.removeElement(50)); 
-// prints 10 20 30 40 
-ll.printList(); 
-// returns 3 
-console.log("Index of 40 " + ll.indexOf(40)); 
-// insert 60 at second positon 
-// ll contains 10 20 60 30 40 
-ll.insertAt(60, 2); 
-ll.printList(); 
-// returns false 
-console.log("is List Empty ? " + ll.isEmpty()); 
-// remove 3rd element from the list 
-console.log(ll.removeFrom(3)); 
-// prints 10 20 60 40 
-ll.printList(); 
-*/
+module.exports={Linkedlist}*/
