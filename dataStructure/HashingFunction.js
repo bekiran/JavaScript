@@ -1,14 +1,18 @@
 /**
- * purpose     :A program to implement hashing function to search a number in a slot.
- * @description
- * @file       :  HashingFunction.js
- * @author     :  Kiran B.E.
- * @version    :  1.0
- * @since      :  21-01-2019
+ * Execution       :   1. default node          : cmd> node HashingFunction.js
+ *                      2. if nodemon installed  : cmd> nodemon HashingFunction.js
+ *                         -nodemon helps in restart the program after every changes.
  * 
+ *  @purpose       :  To Create a Slot of 10 to store Chain of Numbers that belong to 
+ *                    each Slot to efficiently search a number from a given set of number
+ * 
+ * 
+ *  @file           : HashingFunction.js
+ *  @overview       : A program to implement hashing function to search a number in a slot.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 18-jan-2019
  */
-
-
 var access = require('./Implementation/linkedList');
 var readline = require('readline-sync');
 var take = require('util');
@@ -84,3 +88,4 @@ function hashing() {
 
 }
 hashing();
+filestream.readFileSync('hashnumber.txt', 'utf8'); filestream.readFileSync('hashnumber.txt', 'utf8');

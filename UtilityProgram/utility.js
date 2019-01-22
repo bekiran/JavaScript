@@ -842,6 +842,14 @@ fileCall()
     return arr;
 },
 
+fileCalls(name) 
+{
+    var fileStream = require('fs');
+    var f = fileStream.readFileSync(name, 'utf8');
+    var arr = f.split(' ');
+    return arr;
+},
+
 writeFile(filename,Data)
     {
         const fs = require('fs')

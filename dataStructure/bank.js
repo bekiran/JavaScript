@@ -1,3 +1,19 @@
+/**
+ * Execution       :   1. default node          : cmd> node bank.js
+ *                      2. if nodemon installed  : cmd> nodemon bank.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  @purpose       :  To creates Banking Cash Counter where people come in 
+ *                    to deposit Cash and withdraw Cash. Take input panel to add people to 
+ *                    Queue to either deposit or withdraw money and dequeue the people.
+ * 
+ * 
+ *  @file           : bank.js
+ *  @overview       : Use random numbers to generate coupon numbers.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 16-jan-2019
+ */
 var utility = require('../dataStructure/Implementation/QueueImplement')
 var readline = require('readline-sync')
 function Queue() 

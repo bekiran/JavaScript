@@ -1,9 +1,23 @@
+/**
+ * Execution       :   1. default node          : cmd> node QueueUsingLinkedlist.js
+ *                      2. if nodemon installed  : cmd> nodemon QueueUsingLinkedlist.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  @purpose       :   Implementation of Queue using Linked List
+ * 
+ * 
+ *  @file           : QueueUsingLinkedlist.js
+ *  @overview       : Use random numbers to generate coupon numbers.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 17-jan-2019
+ */
 class Node
 {
-    constructor()
+    constructor(element)
     {
         this.element=element;
-        this.next=next;
+        this.next=null;
     }
 }
 
@@ -18,7 +32,7 @@ class QueueLinked
     //Adding an element
     enqueue(element)
     {
-        var n =new node(element)
+        var n =new Node(element)
         if(this.head==null)
         {
             this.head=n;

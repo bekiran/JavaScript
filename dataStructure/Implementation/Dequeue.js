@@ -1,3 +1,18 @@
+/**
+ * Execution       :   1. default node          : cmd> node Dequeue.js
+ *                      2. if nodemon installed  : cmd> nodemon Dequeue.js
+ *                         -nodemon helps in restart the program after every changes.
+ * 
+ *  @purpose       :   Implementation of DeQueue
+ * 
+ * 
+ *  @file           : Dequeue.js
+ *  @overview       : Use random numbers to generate coupon numbers.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 17-jan-2019
+ */
+ 
 class Dequeue
 {
     constructor()
