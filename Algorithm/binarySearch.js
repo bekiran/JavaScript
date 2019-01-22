@@ -1,13 +1,20 @@
-var Utility = require('../UtilityProgram/utility');
-var readline = require('readline-sync');
-function binarySearch() {
-    var arr = [];
-   var res= Utility.insertArray(arr);
-   var low=0,high=res.length-1;
-   console.log("Enter the element you want search");
-   var ele=readline.question('');
-  var res1= Utility.binarySearch(res,low,high,ele);
-  console.log("The number is found on the index",res1);
+var D=require('../UtilityProgram/utility');
+/**
+ * import the Utility class to use the functionalities.
+ */
 
+var read=require('readline-sync');
+var num=read.questionInt("enter the size of an array : ")
+var arr=[];
+while(num!=arr.length)
+{
+    var number=read.questionInt("enter the array elements : ")
+    arr.push(number)
 }
-binarySearch();
+var arr1=D.bubbleSort(arr)
+var num=read.questionInt("enter the number to be searched : ")
+ var b=D.binarySearch(arr1,num)
+ if(b==true)
+ console.log("Number is present")
+ else
+ console.log("Number is not present")

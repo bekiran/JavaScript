@@ -792,35 +792,35 @@ isAnagramPalimdrome()
 // 4.1 binarySearch method for integer
 
 
-binarySearch(res, low, high, ele) 
-{
-    var mid;
-    while (high >= low) 
-    {
-        // calculate mid value 
-        mid = Math.floor(low + (high - low) / 2);
-        // check mid with ele
-        if (res[mid] == ele) 
-        {
-            return mid;
+binarySearch(arr, number) {
+    console.log("in binary search " + arr)
+    var n = arr.length;
+    var l = 1
+    var tem
+    while (tem != number) {
+        if (n < l)
+            break;
+        var m = l + Math.floor((n - l) / 2)
+
+        if (arr[m] < number)
+            l = m + 1
+        else if (arr[m] > number)
+            n = m - 1
+        else if (arr[m] == number) {
+            console.log("number is present")
+            tem = number
+            return true
         }
-        //check mid with ele 
-        if (res[mid] > ele) 
-        {
-            //assign decremented mid to high 
-            high = mid - 1;
+        else {
+            break;
+            return false
         }
-        else 
-        {
-            //assign inremented mid to low
-            low = mid + 1;
-        }
+
+
     }
-    // if not found return -1
-    return -1;
+
+
 },
-
-
 /************************************ call File **********************************/
 
 
