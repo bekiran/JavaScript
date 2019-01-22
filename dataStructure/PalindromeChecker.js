@@ -1,16 +1,16 @@
 /**
- * Execution       :   1. default node          : cmd> node bank.js
- *                      2. if nodemon installed  : cmd> nodemon bank.js
+ * Execution       :   1. default node          : cmd> node PalindromeChecker.js
+ *                      2. if nodemon installed  : cmd> nodemon PalindromeChecker.js
  *                         -nodemon helps in restart the program after every changes.
  * 
- *  @purpose       :   Implementation of Stack using LinkedList
+ *  @purpose       :   To chech the given string is Palindrome or not.
  * 
  * 
- *  @file           : bank.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @file           : PalindromeChecker.js
+ *  @overview       : To chech the given string is Palindrome or not useing Dequeue.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
- *  @since          : 16-jan-2019
+ *  @since          : 19-jan-2019
  */
 var access=require('../dataStructure/Implementation/Dequeue');
 var readline=require('readline-sync');

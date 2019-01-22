@@ -9,10 +9,10 @@
  * 
  * 
  *  @file           : bank.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : To creat an bank cash counter.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
- *  @since          : 16-jan-2019
+ *  @since          : 18-jan-2019
  */
 var utility = require('../dataStructure/Implementation/QueueImplement')
 var readline = require('readline-sync')

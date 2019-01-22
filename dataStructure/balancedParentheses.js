@@ -3,14 +3,12 @@
  *                      2. if nodemon installed  : cmd> balancedParentheses.js
  *                         -nodemon helps in restart the program after every changes.
  * 
- *  @purpose       :    Read the Text from a file, split it into words and arrange it as Linked List.
- *                  Take a user input to search a Word in the List. If the Word is not found then 
- *                  add it to the list, and if it found then remove the word from the List. In the 
- *                  end save the list into a file.
+ *  @purpose       : To accept mathematical expression with parantheses from user
+ *                   input and check its balanced or not.  
  * 
  * 
  *  @file           : balancedParentheses.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : To accept mathematical expression and check for it's correctness.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
  *  @since          : 11-jan-2019

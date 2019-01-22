@@ -8,7 +8,7 @@
  * 
  * 
  *  @file           : calendarExtended.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : To create an calender by accepting month and year as user input.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
  *  @since          : 16-jan-2019

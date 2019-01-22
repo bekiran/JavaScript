@@ -1,17 +1,17 @@
 
 /**
- * Execution       :   1. default node          : cmd> node bank.js
- *                      2. if nodemon installed  : cmd> nodemon bank.js
+ * Execution       :   1. default node          : cmd> node primeAnagramAdd.js
+ *                      2. if nodemon installed  : cmd> nodemon primeAnagramAdd.js
  *                         -nodemon helps in restart the program after every changes.
  * 
- *  @purpose       :   Implementation of Stack using LinkedList
+ *  @purpose       :   To check the given input is prime and anagram or not.
  * 
  * 
- *  @file           : bank.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @file           : primeAnagramAdd.js
+ *  @overview       : To check the user input is prime and anagram or not.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
- *  @since          : 16-jan-2019
+ *  @since          : 19-jan-2019
  */
 
  var dsUtil = require('../dataStructure/Implementation/QueueImplement');

@@ -7,7 +7,7 @@
  * 
  * 
  *  @file           : fact.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : Factorial code.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
  *  @since          : 16-jan-2019

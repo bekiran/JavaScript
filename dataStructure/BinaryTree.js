@@ -8,10 +8,10 @@
  * 
  * 
  *  @file           : BinaryTree.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : To search different binary search tree.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
- *  @since          : 16-jan-2019
+ *  @since          : 18-jan-2019
  */
 var utility = require('../dataStructure/fact')
 var read=require('readline-sync')

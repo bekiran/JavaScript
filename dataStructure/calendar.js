@@ -8,10 +8,10 @@
  * 
  * 
  *  @file           : calendar.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : To creat an Calender by accepting month and year from user input.
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
- *  @since          : 16-jan-2019
+ *  @since          : 18-jan-2019
  */
 var take = require('util');
 var Utility = require('../UtilityProgram/utility');

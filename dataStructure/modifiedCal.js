@@ -8,7 +8,8 @@
  * 
  * 
  *  @file           : modifiedCal.js
- *  @overview       : Use random numbers to generate coupon numbers.
+ *  @overview       : creating an calender by accepting month calender using user input as month and year
+ *                    Implementing using stack
  *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
  *  @version        : 1.0
  *  @since          : 16-jan-2019
