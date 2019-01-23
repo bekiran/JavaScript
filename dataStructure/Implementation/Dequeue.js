@@ -13,7 +13,7 @@
  *  @since          : 17-jan-2019
  */
  
-class Dequeue
+class Dequeue 
 {
     constructor()
     {
