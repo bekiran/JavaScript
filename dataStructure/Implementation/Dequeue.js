@@ -17,13 +17,13 @@ class Dequeue
 {
     constructor()
     {
-        this.front=-1;
-        this.back=0;
+        this.front=-1;                          //Intally intilaze front = -1
+        this.back=0;                            //Inatally initalize rear = 0
         this.size=30
         this.arr=new Array(30);
     }
 
-    isFull()
+    isFull()   // Checks whether the Dequeue is full.
     {
         if((this.front==0 &&this.rear==this.size-1 )||(this.rear+1==this.front))
         {
@@ -31,12 +31,12 @@ class Dequeue
         }
         return false;
     }
-    isEmpty()
+    isEmpty()     // Checks whether the Dequeue is empty.
     {
       return this.front==-1;
     }
 
-    addFront(item)
+    addFront(item)   // To add elements from front.
     {
         if(this.isFull())
         {
@@ -57,7 +57,7 @@ class Dequeue
         }
         this.arr[this.front]=item;
     }
-    addRear(item)
+    addRear(item)   // to add element from rear
     {
         if(this.isFull())
         {
@@ -79,7 +79,7 @@ class Dequeue
         }
         this.arr[this.rear]=item;
     }
-    removeRear()
+    removeRear()  // to remove the element from rare
     {
         if(this.isEmpty())
         {
@@ -104,7 +104,7 @@ class Dequeue
         }
         return item;
     }
-    removeFront()
+    removeFront() // remove the element from front
     {
         if(this.isEmpty())
         {
@@ -130,7 +130,7 @@ class Dequeue
         }
         return item;
     }
-    getFront()
+    getFront()   //To Peek the content of top most element from front
     {
         if(this.isEmpty())
         {
@@ -138,7 +138,7 @@ class Dequeue
         }
         return this.arr[this.front];
     }
-    getRear()
+    getRear()   //To peek th content of top most element from rare.
     {
         if(this.isEmpty())
         {
@@ -147,7 +147,7 @@ class Dequeue
         return this.arr[this.rear];
     }
      
-    PalindromeChecker(str)
+    PalindromeChecker(str)    //To check the given string is Palindrome or not
     {
         for(let i=0;i<str.length;i++)
         {

@@ -1,0 +1,38 @@
+{
+    "Rice":[
+        {
+            "name": "Shrilalmahal Empire Basmati",
+            "weight": 5,
+            "price": 167.90
+        },
+        {
+            "name": "India Gate Basmati",
+            "weight": 3,
+            "price": 132.50
+        }
+    ],
+    "Wheats":[
+        {
+            "name": "Pillsbury Chikki Fresh Atta",
+            "weight": 7,
+            "price": 38.25
+        },
+        {
+            "name": "Patanjali Chikki Atta",
+            "weight": 2,
+            "price": 35.20
+        }
+    ],
+    "Pulse":[
+        {
+            "name": "Tata Sampann Chana Dal",
+            "weight": 2,
+            "price": 89.99
+        },
+        {
+            "name": "Agro Fresh Black Chana",
+            "weight": 1.5,
+            "price": 98
+        }
+    ]
+}

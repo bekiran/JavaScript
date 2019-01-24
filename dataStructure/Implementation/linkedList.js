@@ -15,6 +15,8 @@
  
 
 //Implementing LinkedList Data Structure
+
+// Node Class
 class Node {
   constructor(element) {
     this.element = element;
@@ -22,12 +24,13 @@ class Node {
   }
 }
 
+// LinkedList class
 class LinkedList {
   constructor() {
     this.head = null;
     this.size = 0;
   }
-  add(element) {
+  add(element) {              //  to add an element.
     var n = new Node(element);
     if (this.head == null) {
       this.head = n;
@@ -42,7 +45,7 @@ class LinkedList {
       current.next = n;
     }
   }
-  insertFirst(element) {
+  insertFirst(element) {    // to add the element at the first node.
     var n = new Node(element);
     if (this.head == null) {
       this.head = n;
@@ -56,7 +59,7 @@ class LinkedList {
     }
   }
 
-  insert(index, element) {
+  insert(index, element) {   //to insert the element at perticular index.
     if (index == 1) {
       this.insertFirst(element);
       return;
@@ -82,7 +85,7 @@ class LinkedList {
     }
     return false;
   }
-  deleteFirst() {
+  deleteFirst() {              //delete the first node
     if (this.head == null) {
       console.log("Linked List empty");
       return;
