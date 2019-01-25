@@ -189,7 +189,6 @@ module.exports = {
 
     //console.log(stk[]);
   },
-
   
   /**
    * purpose: Taking stock name as input and validate it.
@@ -216,7 +215,7 @@ module.exports = {
    */
   inNoOfShare() {
     var flag = true;
-    var Noofshares = read.question("Enter how many shares you have : ");
+    var Noofshares = read.question("Enter how many shares you have? : ");
     while (flag) {
       if (!isNaN(Noofshares)) {
         //for validate full name
@@ -310,15 +309,16 @@ module.exports = {
     var val = -1;
     //searching the data from object
     for (key in stockobj) {
-      if (stockobj[key].stockname == name) {
+      if (stockobj[key].stock_name == name) {
         val = key;
       }
     }
+    console.log(val," key");
     if (val == -1) {
       console.log("No record found ");
     }
     console.log(stockobj[val]);
-    var ch = read.question("Are You Sure \n1.Delete. \n2.Exit ");
+    var ch = read.question("Are You Sure? \n 1. Delete. \n 2. Exit ");
     if (ch == 1) {
       stockobj.splice(val, 1);
       console.log(stockobj);
