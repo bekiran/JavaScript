@@ -1,5 +1,6 @@
 /************************************* Object Oriented Programs ***************************/
 
+const readline = require('readline-sync');
 //creates a new date object with the current date and time
 var dt = new Date();
 
@@ -153,7 +154,6 @@ module.exports = {
    * @parameter : object --> objects such as Rice, Wheats and Pulse which are at inventory
    */
 
-   
   stock(obj) {
     var flag = true;
     var stk = obj.stock;
@@ -189,7 +189,7 @@ module.exports = {
 
     //console.log(stk[]);
   },
-  
+
   /**
    * purpose: Taking stock name as input and validate it.
    */
@@ -313,7 +313,7 @@ module.exports = {
         val = key;
       }
     }
-    console.log(val," key");
+    console.log(val, " key");
     if (val == -1) {
       console.log("No record found ");
     }
@@ -383,20 +383,279 @@ module.exports = {
         console.log("Sorry.. Wrong input");
         return this.inventoryManage(object, file);
     }
-  }
+  },
 
-  /************************* Inventory Management Program ***************************
-   *  4. Inventory Management Program
+  /*************************  Deck Of Cards ***************************
+   *  4.  Deck Of Cards
    *---------------------------------
-   * @Purpose   : To creat a file having Inventory Details for Rice, Pulses and Wheats
-   *             with properties such as name, weight, price per kg.
+   * @Purpose   : To Shuffle the cards using Random method and then distribute 9 Cards to 4 Players
    *
-   * @Use Library : Java JSON Library
+   * @description : to initialize deck of cards having suit ("Clubs", "Diamonds", "Hearts", "Spades")
+   * & Rank ("2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace").
+   * Shuffle the cards using Random method and then distribute 9 Cards to 4 Players and Print the Cards t
+   * he received by the 4 Players using 2D Array…
    *
-   * @description: Declaring the function and passing the userinput as argument.
-   *
-   * @function: diplayname takes the userinput and print it with some sentence.
+   * @function : Shuffle the cards using Random method and then distribute 9 Cards to 4 Players.
    *
    * @parameter : object --> objects such as Rice, Wheats and Pulse which are at inventory
    */
+
+  // method which return all the sute ("Clubs", "Diamonds", "Hearts", "Spades") of cards in mixing form.
+  deckOfCards() {
+    var suit = ["♣️", "♦️", "♥️", "♠️"]; //suit is one of the categories into which the cards of a deck are divided
+    var rank = [
+      "King",
+      "Queen",
+      "Jack",
+      "Ace",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10"
+    ];
+    var cards = new Array();
+    var n = suit.length * rank.length;
+    for (let i = 0; i < suit.length; i++) {
+      for (
+        let j = 0;
+        j < rank.length;
+        j++ // adding all cards in an array. total 52 cards
+      ) {
+        cards.push("" + rank[j] + suit[i]);
+      }
+    }
+
+    var l, temp;
+    for (let index = 0; index < n; index++) {
+      var l = Math.floor(Math.random() * n); // mixing all cards.
+      temp = cards[l];
+      cards[l] = cards[index];
+      cards[index] = temp;
+    }
+    return cards;
+  },
+
+  distributeCards() {
+    var cards = this.deckOfCards(); // To get all cards
+    var personCards = [[], [], [], []];
+    var x = 0;
+
+    for (let person = 0; person < 4; person++) {
+      //distribute the cards in among four person
+      for (let index = 0; index < 9; index++) {
+        personCards[person][index] = cards[index + x];
+      }
+      x = x + 9;
+    }
+    console.log(
+      "==================== crads Distributed among 4 Players ========================= " +
+        "\n"
+    );
+    console.log("The First persons cards   : " + personCards[0].join());
+    console.log("The Seconds persons cards : " + personCards[1].join());
+    console.log("The Third persons cards   : " + personCards[2].join());
+    console.log("The Fourth persons cards  : " + personCards[3].join() + "\n");
+  },
+
+
+  /********************************** Deck Of Cards Extended *************************************
+   * Deck Of Cards Extended
+   * 
+   * 
+   *************************************************************************************************/
+
+  deckExtend() {
+    var queue = require("../../dataStructure/Implementation/QueueUsingLinkedlist");
+    var sort = require("../../UtilityProgram/utility");
+    var dis = require("util");
+    var person1 = new queue.QueueLinked();
+    var person2 = new queue.QueueLinked();
+    var person3 = new queue.QueueLinked();
+    var person4 = new queue.QueueLinked();
+    var suit = ["♣️", "♦️", "♥️", "♠️"];
+    var rank = [
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "jack",
+      "queen",
+      "king",
+      "ace"
+    ];
+    var deck = new Array();
+    var n = suit.length * rank.length;
+    for (let i = 0; i < suit.length; i++) {
+      for (let j = 0; j < rank.length; j++) {
+        var temp = "";
+        deck.push(suit[i] + rank[j] + "");
+      }
+    }
+
+    for (let i = 0; i < n; i++) {
+      var random = parseInt(Math.random() * deck.length);
+
+      var temp = deck[i];
+      deck[i] = deck[random];
+      deck[random] = temp;
+    }
+    var x = 0,
+      y = 9;
+    var array = [];
+    for (let i = 0; i < deck.length; i++) {
+      if (i < 13) {
+        person1.enqueue(deck[i]);
+      } else if (i < 26) {
+        person2.enqueue(deck[i]);
+      } else if (i < 39) {
+        person3.enqueue(deck[i]);
+      } else {
+        person4.enqueue(deck[i]);
+      }
+    }
+    array = person1.getData().split(" ");
+    array2 = person2.getData().split(" ");
+    array3 = person3.getData().split(" ");
+    array4 = person4.getData().split(" ");
+    sort.insertion(array);
+    sort.insertion(array2);
+    sort.insertion(array3);
+    sort.insertion(array4);
+    console.log("\n"+
+      "========================= crads Distributed among 4 Players  ============================== " +
+        "\n"
+    );
+    console.log("Player 1 have this cards :  " + array.join());
+    console.log("Player 2 have this cards :  " + array2.join());
+    console.log("Player 3 have this cards :  " + array3.join());
+    console.log("Player 4 have this cards :  " + array4.join());
+    console.log("\n")
+  },
+
+  clinicManagement(data) {
+    var doctor = data.Doctor;
+    var patient = data.Patient;
+    console.log("\n"+"====================== Welcome to BridgeLabz's Clinic Managment ================")
+    var answer = Number(read.question("1. Search Doctor \n2. Search Patient"+"\n"));
+    {
+        if (answer == 1) {
+          console.log("================= Doctors ======================= ")
+            let inf = read.question("1. Search Doctors by Name  \n2. Search Doctors by ID \n3. Search Doctors by Specialization \n");
+            if (inf == 1) {
+                var nam = read.question("Enter Doctor Name ");
+                for (var key in doctor) {
+                    if (doctor[key].name == nam) {
+                        console.log("==== your Doctor information ====");
+                        console.log(doctor[key]);
+                    }
+                }
+                this.appointment();
+            }
+            else if (inf == 2) {
+                var idn = read.question("Enter the ID of doctor ");
+                for (var key in doctor) {
+                    if (doctor[key].Id == idn) {
+                        console.log("----your doctor information----");
+                        console.log(doctor[key]);
+                    }
+                }
+                this.appointment();
+            }
+            else if (inf == 3) {
+                var spc = read.question("Enter the Specialization of doctor ");
+                for (var key in doctor) {
+                    if (doctor[key].Specialization == spc) {
+                        console.log("----your doctor information----");
+                        console.log(doctor[key]);
+                    }
+                }
+                this.appointment();
+            }
+            else {
+                console.log("Enter valid input");
+                this.clinicManagement(data);
+            }
+        }
+        else if (answer == 2) {
+            let inf = read.question("Press \n 1. to search patient by his name \n 2. by ID ,\n 3.by Mobile number ");
+            if (inf == 1) {
+                var nam = read.question("Enter the name of Patient ");
+                for (var key in patient) {
+                    if (patient[key].name == nam) {
+                        console.log("----your Patient information----");
+                        console.log(patient[key]);
+                    }
+                }
+                // this.appointment();
+            }
+            else if (inf == 2) {
+                var idn = read.question("Enter the Id of Patient ");
+                for (var key in patient) {
+                    if (patient[key].Id == idn) {
+                        console.log("----your Patient information----");
+                        console.log(patient[key]);
+                    }
+                }
+                //this.appointment();
+            }
+            else if (inf == 3) {
+                var mob = read.question("Enter the mobile number of Patient "); deck2D
+                for (var key in patient) {
+                    if (patient[key].Contact_number == mob) {
+                        console.log("----your Patient information----");
+                        console.log(patient[key]);
+                    }
+                }
+                //this.appointment();
+            }
+            else if (inf == 4) {
+                return;
+            }
+            else {
+                console.log("Enter the valid input")
+            }
+        }
+        else {
+            console.log("Enter valid input")
+        }
+    }
+
+},
+appointment(data, doctor) {
+
+},
+inventManagement(data) {
+
+    var answer = Number(read.question(" press \n 1. To add \n 2. To delete \n 3. To display \n 4. To print \n 5.To exit "));
+    if (answer == 1) {
+        this.add(data);
+    }
+    else if (answer == 2) {
+        this.remove(data);
+    }
+    else if (answer == 3) {
+        this.disp(data);
+    }
+    else if (answer == 4) {
+        this.print(data);
+    }
+    else if (answer == 5) {
+        this.exit(data);
+    }
+    else {
+        console.log("Invalid key/input ");
+    }
+},
+
+  
 };
