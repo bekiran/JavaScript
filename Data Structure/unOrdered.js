@@ -18,7 +18,7 @@
  *  @since          : 16-jan-2019
  */
  
-var utillity=require('../dataStructure/Implementation/linkedList')
+var utillity=require('../Data Structure/Implementation/linkedList')
 var M=require('../UtilityProgram/utility')
 var read = require('readline-sync')
 var word=read.question("Enter the word to be searched : ")

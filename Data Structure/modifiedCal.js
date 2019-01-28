@@ -14,8 +14,8 @@
  *  @version        : 1.0
  *  @since          : 16-jan-2019
  */
-var access = require('../dataStructure/Implementation/SatckImplement');
-var access1 = require('../dataStructure/Implementation/QueueImplement');
+var access = require('../Data Structure/Implementation/SatckImplement');
+var access1 = require('../Data Structure/Implementation/QueueImplement');
 var utility = require('../UtilityProgram/utility');
 var readline = require('readline-sync');
 var take=require('util');

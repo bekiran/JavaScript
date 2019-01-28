@@ -14,7 +14,7 @@
  *  @version        : 1.0
  *  @since          : 18-jan-2019
  */
-var utility = require('../dataStructure/Implementation/QueueImplement')
+var utility = require('../Data Structure/Implementation/QueueImplement')
 var readline = require('readline-sync')
 function Queue() 
 { 

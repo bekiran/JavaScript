@@ -14,7 +14,7 @@
  *  @since          : 16-jan-2019
  */
 var utility=require('../UtilityProgram/utility');
-var access=require('../dataStructure/Implementation/StackLinked');
+var access=require('../Data Structure/Implementation/StackLinked');
 var take=require('util');
 function ReverseAnagram()
 {

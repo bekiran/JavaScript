@@ -14,7 +14,7 @@
  *  @since          : 19-jan-2019
  */
 
- var dsUtil = require('../dataStructure/Implementation/QueueImplement');
+ var dsUtil = require('../Data Structure/Implementation/QueueImplement');
 var ref = require('util')
 var util = require('../UtilityProgram/utility')
 arrPrime = []

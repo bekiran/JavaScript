@@ -480,7 +480,7 @@ module.exports = {
    *
    */
   deckExtend() {
-    var queue = require("../../dataStructure/Implementation/QueueUsingLinkedlist");
+    var queue = require("../../Data Structure/Implementation/QueueUsingLinkedlist");
     var sort = require("../../UtilityProgram/utility");
     var dis = require("util");
     var person1 = new queue.QueueLinked();

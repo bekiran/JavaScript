@@ -14,7 +14,7 @@
  *  @since          : 11-jan-2019
  */
 
-var Utility=require('../dataStructure/Implementation/SatckImplement')
+var Utility=require('../Data Structure/Implementation/SatckImplement')
 var M=require('../UtilityProgram/utility')
 var read=require('readline-sync')
 function Stack(){

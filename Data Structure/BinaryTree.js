@@ -13,7 +13,7 @@
  *  @version        : 1.0
  *  @since          : 18-jan-2019
  */
-var utility = require('../dataStructure/fact')
+var utility = require('../Data Structure/fact')
 var read=require('readline-sync')
 var num=read.questionInt("Enter the number : ");
 var fact=utility.findFactorial(num)

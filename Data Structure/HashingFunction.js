@@ -13,7 +13,7 @@
  *  @version        : 1.0
  *  @since          : 18-jan-2019
  */
-var access = require('./Implementation/linkedList');
+var access = require('../Data Structure/Implementation/linkedList');
 var readline = require('readline-sync');
 var take = require('util');
 var filestream = require('fs');

@@ -12,7 +12,7 @@
  *  @version        : 1.0
  *  @since          : 19-jan-2019
  */
-var access=require('../dataStructure/Implementation/Dequeue');
+var access=require('../Data Structure/Implementation/Dequeue');
 var readline=require('readline-sync');
 function check()
 {

@@ -15,8 +15,8 @@
  */
 
 
-var D=require('../dataStructure/Implementation/QueueUsingLinkedlist')
-var M=require('../dataStructure/utilityCalender');
+var D=require('../Data Structure/Implementation/QueueUsingLinkedlist')
+var M=require('../Data Structure/utilityCalender');
 var N=require('../UtilityProgram/utility')
 var T=require('util')
 var read=require('readline-sync')
