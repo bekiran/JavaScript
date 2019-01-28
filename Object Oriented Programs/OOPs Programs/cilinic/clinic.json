@@ -1,66 +1,73 @@
 {
-    "Doctor" : [{
-                 "name"           : "Dr.Swamy",
-                 "Id"             : "D301",
-                 "Specialization" : "Pediatrician",
-                 "Availability"   : "Pm"
-                },
-                {
-                 "name"           : "Dr.Kiran",
-                 "Id"             : "D202",
-                 "Specialization" : "Psychiatrist",
-                 "Availability"   : "Both"
-                },
-                {
-                 "name"           : "Dr.Vidya",
-                 "Id"             : "D311",
-                 "Specialization" : "Cardiologist ",
-                 "Availability"   : "Am"
-                },
-                {
-                 "name"           : "Dr.Akashaya",
-                 "Id"             : "D203",
-                 "Specialization" : "Ophthalmologist ",
-                 "Availability"   : "Both"
-                },
-                {
-                 "name"           : "Dr.Kavayashree",
-                 "Id"             : "D303",
-                 "Specialization" : "Neurologist",
-                 "Availability"   : "Pm"
-                }
-                ],
+  "Doctor": [
+    {
+      "name"          : "Dr.Eswarappa",
+      "Id"            : "NMH01",
+      "Specialization": "Orthopaedics",
+      "Availability"  : "Both"
+    },
+    {
+      "name"          : "Dr.Kiran B E",
+      "Id"            : "NMH02",
+      "Specialization": "Pediatrics",
+      "Availability"  : "Both"
+    },
+    {
+      "name"          : "Dr.Nirmala",
+      "Id"            : "NMH03",
+      "Specialization": "Cardiologist ",
+      "Availability"  : "Am"
+    },
+    {
+      "name"          : "Dr.Manoj",
+      "Id"            : "NMH04",
+      "Specialization": "General Medicine",
+      "Availability"  : "Both"
+    },
+    {
+      "name"          : "Dr.Hare Krisna",
+      "Id"            : "NMH05",
+      "Specialization": "Neurologist",
+      "Availability"  : "Both"
+    },
+    {
+      "name"          : "Dr.Vidya",
+      "Id"            : "NMH06",
+      "Specialization": "ENT (Ear, Nose and Throat)",
+      "Availability"  : "Pm"
+    }
+  ],
 
-    "Patient" : [{
-                 "name"           : "Kasab",
-                 "Id"             : "P001",
-                 "Contact_number" : "9988776655",
-                 "Age"            : "30"
-                },
-                {
-                 "name"           : "Sandeep",
-                 "Id"             : "P002",
-                 "Contact_number" : "8899662277",
-                 "Age"            : "47"
-                },
-                {
-                 "name"           : "Anand",
-                 "Id"             : "P003",
-                 "Contact_number" : "9944556611",
-                 "Age"            : "25"
-                },
-                {
-                 "name"           : "Ansar",
-                 "Id"             : "P010",
-                 "Contact_number" : "9922114455",
-                 "Age"            : "33"
-                },
-                {
-                 "name"           : "Amar kumar",
-                 "Id"             : "P007",
-                 "Contact_number" : "8811334455",
-                 "Age"            : "37"
-                }
-            ]
-    
+  "Patient": [
+    {
+      "name"          : "Mr.Suresh",
+      "Id"            : "NHMPR1",
+      "Contact_number": "9988776655",
+      "Age"           : "30"
+    },
+    {
+      "name"          : "Mr.Sandeep",
+      "Id"            : "NHMPR2",
+      "Contact_number": "9845123659",
+      "Age"           : "47"
+    },
+    {
+      "name"          : "Mr.Rakshith",
+      "Id"            : "NHMPR3",
+      "Contact_number": "9944556611",
+      "Age"           : "25"
+    },
+    {
+      "name"          : "Mr.Somu",
+      "Id"            : "NHMPR4",
+      "Contact_number": "9922114455",
+      "Age"           : "33"
+    },
+    {
+      "name"          : "Mr.Manju",
+      "Id"            : "NHMPR5",
+      "Contact_number": "8811334455",
+      "Age"           : "37"
+    }
+  ]
 }

@@ -1,0 +1,28 @@
+{
+    "company":[
+        {
+            "name": "Geek",
+            "symbol":"A",
+            "no_of_shares": "1000",
+            "shares_per_price": 24701 
+        },
+        {
+            "name": "Bridgelabz Solutions LLP",
+            "symbol":"B",
+            "no_of_shares": "1021",
+            "shares_per_price": 22001 
+        },
+        {
+            "name": "Honeywell",
+            "symbol":"C",
+            "no_of_shares": "1041",
+            "shares_per_price": 21937 
+        },
+        {
+            "name": "Bosch",
+            "symbol":"D",
+            "no_of_shares": "1061",
+            "shares_per_price": 18801 
+        }
+    ]
+}
