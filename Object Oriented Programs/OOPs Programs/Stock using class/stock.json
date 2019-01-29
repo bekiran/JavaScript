@@ -1,0 +1,25 @@
+{
+    "Stock": [
+      {
+        "stock_name": "YESBANK",
+        "Num_of_shares": 191,
+        "share_price": 227
+      },
+      {
+        "stock_name": "RELIANCE",
+        "Num_of_shares": 2000,
+        "share_price": 1257
+      },
+      {
+        "stock_name": "MARUTI",
+        "Num_of_shares": 5742,
+        "share_price": 7095
+      },
+      {
+        "stock_name": "TCS",
+        "Num_of_shares": 5712,
+        "share_price": 1927.9
+      }
+    ]
+  }
+  

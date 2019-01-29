@@ -2,10 +2,24 @@
     "user":[
         {
             "name": "Kiran",
-            "id"  : "45",
+            "id"  : "3",
             "symbol":"",
             "shares": "",
-            "amount": 454 
+            "amount": 2100000 
+        },
+        {
+            "name": "adhi",
+            "id"  : "1",
+            "symbol":"",
+            "shares": "",
+            "amount": 1400000 
+        },
+        {
+            "name": "akshaya",
+            "id"  : "2",
+            "symbol":"",
+            "shares": "",
+            "amount": 4560000
         }
     ]
 }

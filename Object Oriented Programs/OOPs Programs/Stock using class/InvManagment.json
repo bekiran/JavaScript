@@ -1,0 +1,19 @@
+{
+  "Stock": [
+    {
+      "stockname": "tcs",
+      "numberofshare": 1000,
+      "shareprice": 1982
+    },
+    {
+      "stockname": "hdfc",
+      "Numberofshare": 2121,
+      "shareprice": 1045
+    },
+    {
+      "stockname": "htc",
+      "shareprice": 11111,
+      "numberofshare": 12
+    }
+  ]
+}

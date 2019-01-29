@@ -1,1 +1,14 @@
-{"stock":[{"stock_name":"tcs","Num_of_shares":1000,"share_price":1982}]}
+{
+    "stock": [
+        {
+            "stock_name": "tcs",
+            "Num_of_shares": 1000,
+            "share_price": 1982
+        },
+        {
+            "stock_name": "hdfc",
+            "Num_of_shares": 2121,
+            "share_price": 1045
+        }
+    ]
+}

@@ -190,9 +190,8 @@ module.exports = {
     //console.log(stk[]);
   },
 
-  /**
-   * purpose: Taking stock name as input and validate it.
-   */
+  // purpose: Taking stock name as input and validate it
+
   inStockName() {
     var name = read.question("Enter the name of stock : ");
     var flag = true;
@@ -210,9 +209,9 @@ module.exports = {
     }
     return name;
   },
-  /**
-   * purpose: Taking stock No as input and validate it.
-   */
+  
+  // purpose: Taking stock No as input and validate it.
+  
   inNoOfShare() {
     var flag = true;
     var Noofshares = read.question("Enter how many shares you have? : ");
@@ -229,6 +228,7 @@ module.exports = {
     return Noofshares;
   },
 
+  //// purpose: Taking share price as input and validate it.
   inSharePrice() {
     var flag = true;
     var shareprice = read.question("Enter the price of your share : ");
@@ -243,9 +243,9 @@ module.exports = {
     }
     return shareprice;
   },
-  /**
-   * purpose: To add the stock data to stock object.
-   */
+  
+  // purpose: To add the stock data to stock object.
+   
   addStock(object) {
     var stockobj = object.stock;
     var stkname = this.inStockName();
@@ -258,6 +258,8 @@ module.exports = {
     });
     console.log(object);
   },
+
+  // purpose: To edit the stock data.
 
   editStock(object, file) {
     var val = -1;
@@ -299,10 +301,9 @@ module.exports = {
         return;
     }
   },
-  /**
-   * purpose: To delete the data from stock object.
-   * @param {*} object
-   */
+  
+  // purpose: To delete the data from stock object.
+
   deleteStock(object) {
     var stockobj = object.stock;
     var name = this.inStockName();
@@ -334,11 +335,11 @@ module.exports = {
       console.log(stockobj[key]);
     }
   },
-  /**
-   * purpose:To Save the object to file
-   * @param {*} object
-   * @param {*} file
-   */
+  
+  //purpose:To Save the object to file
+  //@parameter: object and file
+  
+   
   saveStock(object, file) {
     try {
       file.writeFileSync("inventoryManage.json", JSON.stringify(object));
@@ -356,6 +357,7 @@ module.exports = {
    * @returns    : Nothing
    */
   inventoryManage(object, file) {
+    console.log("\n ================ We want to turn our inventory faster than our people ============ \n")
     var key = Number(
       read.question(
         " 1. Add Stock\n 2. Edit Stock \n 3. Delete Stock \n 4. Display \n 5. Save into file \n 6. Exit \n "
@@ -378,6 +380,7 @@ module.exports = {
         this.saveStock(object, file);
         return this.inventoryManage(object, file);
       case 6:
+      console.log("\n ===== Too much of a good thing can be wonderful. Thank you.... ===== \n");
         break;
       default:
         console.log("Sorry.. Wrong input");
@@ -1062,17 +1065,18 @@ module.exports = {
   /*********************************** Commercial data processing ****************************************/
 
   commercial(data, data1, data2) {
+    console.log("\n    ========== Welcome to BSE Stock Account ==========\n");
     var answer = readline.question(
-      "Press.. \n 1. create \n 2. open \n 3. edit \n 4. exit  "
+      "Please select the bellow \n1. Create Stock Account \n2. Customer Information. \n3. Edit Customer Information \n4. Exit \n"
     );
     if (answer == 1) {
       this.create(data, data1, data2);
     } else if (answer == 2) {
       this.open(data, data1, data2);
     } else if (answer == 3) {
-      this.edit(data);
+      this.editCustomer(data);
     } else if (answer == 4) {
-      console.log("  Thanks for your transaction ");
+      console.log("=== Thanks for your transaction ===");
       return;
     } else {
       console.log(" Invalid input ");
@@ -1217,6 +1221,112 @@ module.exports = {
       }
     }
   },
+  editCustomer(data, data1, data2) {
+    let ask = readline.question(
+      " Please press \n 1. Edit Customer Name \n 2. Edit Customer ID \n 3. Edit Customer Symbol \n 4. Edit Customer share  \n 5. Exit \n"
+    );
+    if (ask == 1) {
+      for (var key in data.user) {
+        console.log(" Customer account details ");
+        console.log(data.user[key].name);
+      }
+      let que = readline.question(" Please, Enter your id ");
+      var flag = false;
+      for (let i = 0; i < data.user.length; i++) {
+        if (data1.user[i].id == que) {
+          var useramt = data1.user[i].amount;
+          var cmpshare = data.company[i].shares;
+          var found = data1.user[i];
+          flag = true;
+          //console.log(data1.user[i]);
+        } else {
+          flag = false;
+          //console.log("No such id found ");
+        }
+      }
+      if (flag == false) {
+        console.log(found);
+      } else {
+        console.log("No such ID found. Please Enter your valid ID ");
+      }
+    } else if (ask == 2) {
+      for (var key in data.user) {
+        console.log(" Customer account details ");
+        console.log(data.user[key].id);
+      }
+      let que = readline.question(" Please, Enter your id ");
+      var flag = false;
+      for (let i = 0; i < data1.user.length; i++) {
+        if (data1.user[i].id == que) {
+          var useramt = data1.user[i].amount;
+          var cmpshare = data.company[i].shares;
+          var found = data1.user[i];
+          flag = true;
+          //console.log(data1.user[i]);
+        } else {
+          flag = false;
+          //console.log("No such id found ");
+        }
+      }
+      if (flag == false) {
+        console.log(found);
+      } else {
+        console.log("No such ID found. Please Enter your valid ID ");
+      }
+    } else if (ask == 3) {
+      for (var key in data.user) {
+        console.log(" Customer account details ");
+        console.log(data.user[key].symbol);
+      }
+      let que = readline.question(" Please, Enter your id ");
+      var flag = false;
+      for (let i = 0; i < data1.user.length; i++) {
+        if (data1.user[i].id == que) {
+          var useramt = data1.user[i].amount;
+          var cmpshare = data.company[i].shares;
+          var found = data1.user[i];
+          flag = true;
+          //console.log(data1.user[i]);
+        } else {
+          flag = false;
+          //console.log("No such id found ");
+        }
+      }
+      if (flag == false) {
+        console.log(found);
+      } else {
+        console.log("No such ID found. Please Enter your valid ID ");
+      }
+    } else if (ask == 4) {
+      for (var key in data.user) {
+        console.log(" Customer account details ");
+        console.log(data.user[key].shares);
+      }
+      let que = readline.question(" Please, Enter your id ");
+      var flag = false;
+      for (let i = 0; i < data1.user.length; i++) {
+        if (data1.user[i].id == que) {
+          var useramt = data1.user[i].amount;
+          var cmpshare = data.company[i].shares;
+          var found = data1.user[i];
+          flag = true;
+          //console.log(data1.user[i]);
+        } else {
+          flag = false;
+          //console.log("No such id found ");
+        }
+      }
+      if (flag == false) {
+        console.log(found);
+      } else {
+        console.log("No such ID found. Please Enter your valid ID ");
+      }
+    } else if (ask == 5) {
+      console.log("=== Thanks for your transaction ===");
+      return;
+    }
+  },
+
   callFile() {
     var fileStream = require("fs");
     var f = fileStream.readFileSync("file.txt", "utf8");
