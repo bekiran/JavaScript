@@ -1,14 +1,6 @@
 {
   "Person": [
     {
-      "First_name": "Hare",
-      "Last_name": "Krisna",
-      "Contact": 9845414358,
-      "Address": "Mumbai",
-      "State": "MP",
-      "Zip": 400050
-    },
-    {
       "Firstname": "Kiran",
       "LastName": "BE",
       "Address": "Bangalore",
@@ -21,7 +13,15 @@
       "LastName": "BS",
       "Address": "Shimoga",
       "State": "Karnataka",
-      "Zip": "577418",
+      "Zip": 577418,
+      "Mobile": "9483339805"
+    },
+    {
+      "Firstname": "Akshaya",
+      "LastName": "Mi",
+      "Address": "Shimoga",
+      "State": "Karnataka",
+      "Zip": 577418,
       "Mobile": "9483339805"
     }
   ]

@@ -1,3 +1,21 @@
+/******************************************************************************
+ *  Execution       :   1. default node          : cmd> node stock.js
+ *                      2. if nodemon installed  : cmd> nodemon stock.js
+ *                        -nodemon helps in restart the program after every changes.
+ *
+ *  purpose         : To create inventory object from JSON and to calculate the value for every inventory.
+ *
+ *  @description    : To create a JSON file having Inventory Details for Rice, Pulses and
+ *                    Wheats with properties name, weight, price per kg.
+ *
+ *  @file           : stock.js
+ *  @overview       : To calculate the total cost of each object in inventory for given quantity.
+ *  @author         : Kiran B.E. <bekiranabbi@gmail.com>
+ *  @version        : 1.0
+ *  @since          : 23-jan-2019
+ *
+ ******************************************************************************/
+
 var utility = require('../Stock using class/stockUtility');
 var fileread  = require('fs');
 var data = fileread.readFileSync('stock.json','utf8')
@@ -13,7 +31,7 @@ for(let key in stocks)
     var total = numberofshare*shareprice
     console.log("The total value of "+ stocks[key].stock_name, "share is : ",stocks[key].Num_of_shares*stocks[key].share_price);
     sum=sum+total;
-    i=new utility.Stock(name,numberofshare,shareprice)
+    key=new utility.Stock(name,numberofshare,shareprice)
 
 }
 console.log("\nTotal sum of rupees of all stock value is : "+sum+"\n")

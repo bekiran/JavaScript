@@ -862,24 +862,24 @@ module.exports = {
         id++;
       }
       //generating id for new user
-      var id1 = personobj[id - 1].ID;
+      //var id1 = personobj[id - 1].ID;
       personobj.push({
         Firstname: fname,
         LastName: lname,
         Address: address,
         State: state,
         Zip: PinCode,
-        ID: id1,
+       // ID: id1,
         Mobile: mob
       });
     } catch (err) {
       console.log("error in add person");
     }
   },
-  /**
-   * purpose:To edit the person data from address book
-   * @parameter: object
-   */
+  
+  //purpose:To edit the person data from address book
+  //  @parameter: object
+   
   editPerson(object) {
     var permanent = -1;
     var personobj = object.Person;
@@ -1085,14 +1085,14 @@ module.exports = {
 
   create(data, data1, data2) {
     var ask = readline.question(
-      " Are you a exsting user \n if yes press 1. \n if No press 2.  "
+      " Are you a exsting user? \n 1. if you are an exsting user \n if you are not exsting user \n"
     );
     if (ask == 1) {
       if (data1.user.length == 0) {
-        console.log(" No users available  ");
+        console.log(" No users available: Please enter valid user id ");
         return;
       } else {
-        var que = readline.question(" Enter your existing id ");
+        var que = readline.question(" Enter your existing id : ");
 
         for (let i = 0; i < data1.user.length; i++) {
           if (data1.user[i].id == que) {
@@ -1102,10 +1102,10 @@ module.exports = {
         }
       }
     } else if (ask == 2) {
-      let nam = readline.question(" Enter your name ");
-      let idn = readline.question(" Enter the user id ");
-      let amo = readline.question(" Enter your amount ");
-      let shar = readline.question(" Enter your shares ");
+      let nam = readline.question(" Enter your name : ");
+      let idn = readline.question(" Enter the user id : ");
+      let amo = readline.question(" Enter your amount : ");
+      let shar = readline.question(" Enter your shares : ");
       data1.user.push({
         name: nam,
         id: idn,
@@ -1116,7 +1116,7 @@ module.exports = {
       var read = readline.question(" To save information Enter 1.");
       if (read == 1) {
         filestream.writeFileSync("customer.json", JSON.stringify(data1));
-        console.log(" Your information added ");
+        console.log(" Your information are added sucessfuly");
       } else {
         console.log(" Invalid input ");
       }
